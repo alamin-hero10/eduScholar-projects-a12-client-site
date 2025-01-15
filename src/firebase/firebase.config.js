@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDrOUalQBeq1w6TJ3ZQLmsiUFbCxnzVu1A",
-  authDomain: "eduscholarship-projects-a12.firebaseapp.com",
-  projectId: "eduscholarship-projects-a12",
-  storageBucket: "eduscholarship-projects-a12.firebasestorage.app",
-  messagingSenderId: "930199139631",
-  appId: "1:930199139631:web:22d63421a952f2ef155dda",
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

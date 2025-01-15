@@ -3,9 +3,9 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged,
 import { createContext, useEffect, useState } from "react";
 import auth from "../../firebase/firebase.config";
 
-export const AuthContext = createContext();
+export const AuthContext = createContext(null);
 
-const AuthProvider = ( {children}) => {
+const AuthProvider = ({ children }) => {
     // ---Google Auth Provider---
     const googleProvider = new GoogleAuthProvider();
 
@@ -15,13 +15,15 @@ const AuthProvider = ( {children}) => {
     const [success, setSuccess] = useState();
 
 
-    // ---Handle SignUp/Register---
+    // ---Handle Register/SignUp---
     const handleRegister = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // ---Handle LogIn/SignIn---
     const handleLogIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
@@ -82,11 +84,9 @@ const AuthProvider = ( {children}) => {
 
 
     return (
-        <div>
-            <AuthContext.Provider value={authInfo}>
-                {children}
-            </AuthContext.Provider>
-        </div>
+        <AuthContext.Provider value={authInfo}>
+            {children}
+        </AuthContext.Provider>
     );
 };
 

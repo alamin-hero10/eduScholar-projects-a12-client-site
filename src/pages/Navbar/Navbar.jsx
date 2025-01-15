@@ -5,7 +5,7 @@ import "../Navbar/Navbar.css";
 import logo from "../../assets/visaLogo.png"
 import userIcon from "../../assets/user.png"
 import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../../AuthProvider/AuthProvider/AuthProvider";
+import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 
 const Navbar = () => {
 

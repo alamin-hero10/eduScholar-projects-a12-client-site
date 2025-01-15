@@ -2,10 +2,10 @@ import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../AuthProvider/AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 
 const Register = () => {
 

@@ -3,8 +3,8 @@ import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import { AuthContext } from "../../AuthProvider/AuthProvider/AuthProvider";
 import { useContext, useRef, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 
 const Login = () => {
 

@@ -37,7 +37,7 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className="hero place-items-stretch">
                         <div>
-                            <img className='w-full h-[500px]' src={sliderImg1} alt="" />
+                            <img className='w-full h-[500px] object-cover' src={sliderImg1} alt="" />
                         </div>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content max-w-none text-neutral-content text-center">
@@ -54,7 +54,7 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className="hero place-items-stretch h-[500px]">
                         <div>
-                            <img className='w-full h-[500px]' src={sliderImg2} alt="" />
+                            <img className='w-full h-[500px] object-cover' src={sliderImg2} alt="" />
                         </div>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content max-w-none text-neutral-content text-center">
@@ -71,7 +71,7 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className="hero place-items-stretch h-[500px]">
                         <div>
-                            <img className='w-full h-[500px]' src={sliderImg3} alt="" />
+                            <img className='w-full h-[500px] object-cover' src={sliderImg3} alt="" />
                         </div>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content max-w-none text-neutral-content text-center">
@@ -88,7 +88,7 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className="hero place-items-stretch h-[500px]">
                         <div>
-                            <img className='w-full h-[500px]' src={sliderImg4} alt="" />
+                            <img className='w-full h-[500px] object-cover' src={sliderImg4} alt="" />
                         </div>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content max-w-none text-neutral-content text-center">
@@ -105,7 +105,7 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className="hero place-items-stretch h-[500px]">
                         <div>
-                            <img className='w-full h-[500px]' src={sliderImg5} alt="" />
+                            <img className='w-full h-[500px] object-cover' src={sliderImg5} alt="" />
                         </div>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content max-w-none text-neutral-content text-center">
@@ -122,7 +122,7 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className="hero place-items-stretch h-[500px]">
                         <div>
-                            <img className='w-full h-[500px]' src={sliderImg1} alt="" />
+                            <img className='w-full h-[500px] object-cover' src={sliderImg1} alt="" />
                         </div>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content max-w-none text-neutral-content text-center">
@@ -139,7 +139,7 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className="hero place-items-stretch h-[500px]">
                         <div>
-                            <img className='w-full h-[500px]' src={sliderImg2} alt="" />
+                            <img className='w-full h-[500px] object-cover' src={sliderImg2} alt="" />
                         </div>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content max-w-none text-neutral-content text-center">

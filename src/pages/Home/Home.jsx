@@ -1,19 +1,23 @@
 import Banner from "../../components/Banner/Banner";
+import TopScholarship from "../../components/TopScholarship/TopScholarship";
 
 const Home = () => {
     return (
-        <div>
+        <div className="min-h-screen">
             {/* ---Banner--- */}
-            <div className="min-h-screen">
+            <div>
                 <Banner></Banner>
             </div>
-            {/* ---Name--- */}
-            <div>
-                
+            {/* ---Top-Scholarship--- */}
+            <div className="bg-slate-500">
+                <TopScholarship></TopScholarship>
             </div>
             {/* ---Name--- */}
+            <div></div>
             {/* ---Name--- */}
+            <div></div>
             {/* ---Name--- */}
+            <div></div>
         </div>
     );
 };
