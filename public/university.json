@@ -1,0 +1,229 @@
+[
+  {
+    "id": 1,
+    "UniversityName": "Harvard University",
+    "UniversityImage": "https://i.ibb.co.com/VC9f4WL/harvard-university.jpg",
+    "ScholarshipCategory": "Undergraduate",
+    "UniversityLocation": {
+      "Country": "USA",
+      "City": "Cambridge"
+    },
+    "ApplicationDeadline": "2025-03-15",
+    "SubjectName": "Computer Science",
+    "SubjectCategory": "Engineering & Technology",
+    "ScholarshipDescription": "Full tuition coverage for academically exceptional students.",
+    "Stipend": 1500,
+    "PostDate": "2025-01-10",
+    "ServiceCharge": 200,
+    "ApplicationFees": 50,
+    "Rating": 4.9
+  },
+  {
+    "id": 2,
+    "UniversityName": "University of Oxford",
+    "UniversityImage": "https://i.ibb.co.com/BrCJZCS/University-of-Cambridge.jpg",
+    "ScholarshipCategory": "Postgraduate",
+    "UniversityLocation": {
+      "Country": "UK",
+      "City": "Oxford"
+    },
+    "ApplicationDeadline": "2025-04-01",
+    "SubjectName": "Philosophy",
+    "SubjectCategory": "Humanities",
+    "ScholarshipDescription": "Covers full tuition and living expenses.",
+    "Stipend": 2000,
+    "PostDate": "2025-01-08",
+    "ServiceCharge": 250,
+    "ApplicationFees": 70,
+    "Rating": 4.8
+  },
+  {
+    "id": 3,
+    "UniversityName": "Stanford University",
+    "UniversityImage": "https://i.ibb.co.com/Jzmgfbc/Stanford-University.jpg",
+    "ScholarshipCategory": "PhD",
+    "UniversityLocation": {
+      "Country": "USA",
+      "City": "Stanford"
+    },
+    "ApplicationDeadline": "2025-05-01",
+    "SubjectName": "Mechanical Engineering",
+    "SubjectCategory": "Engineering & Technology",
+    "ScholarshipDescription": "Research-based scholarships with generous funding.",
+    "Stipend": 2500,
+    "PostDate": "2025-01-11",
+    "ServiceCharge": 300,
+    "ApplicationFees": 80,
+    "Rating": 4.7
+  },
+  {
+    "id": 4,
+    "UniversityName": "University of Toronto",
+    "UniversityImage": "https://i.ibb.co.com/0fMWnbn/University-of-Toronto.jpg",
+    "ScholarshipCategory": "Masters",
+    "UniversityLocation": {
+      "Country": "Canada",
+      "City": "Toronto"
+    },
+    "ApplicationDeadline": "2025-06-15",
+    "SubjectName": "Data Science",
+    "SubjectCategory": "Science",
+    "ScholarshipDescription": "Merit-based scholarships with partial funding.",
+    "Stipend": 1200,
+    "PostDate": "2025-01-12",
+    "ServiceCharge": 220,
+    "ApplicationFees": 60,
+    "Rating": 4.6
+  },
+  {
+    "id": 5,
+    "UniversityName": "Australian National University",
+    "UniversityImage": "https://i.ibb.co.com/tq0zBJP/australian-national-university.jpg",
+    "ScholarshipCategory": "Undergraduate",
+    "UniversityLocation": {
+      "Country": "Australia",
+      "City": "Canberra"
+    },
+    "ApplicationDeadline": "2025-07-01",
+    "SubjectName": "Environmental Science",
+    "SubjectCategory": "Science",
+    "ScholarshipDescription": "Full coverage of tuition fees for outstanding students.",
+    "Stipend": null,
+    "PostDate": "2025-01-13",
+    "ServiceCharge": 210,
+    "ApplicationFees": 40,
+    "Rating": 4.5
+  },
+  {
+    "id": 6,
+    "UniversityName": "National University of Singapore",
+    "UniversityImage": "https://i.ibb.co.com/p6H4ZGb/National-University-of-Singapore.jpg",
+    "ScholarshipCategory": "PhD",
+    "UniversityLocation": {
+      "Country": "Singapore",
+      "City": "Singapore"
+    },
+    "ApplicationDeadline": "2025-08-01",
+    "SubjectName": "Artificial Intelligence",
+    "SubjectCategory": "Engineering & Technology",
+    "ScholarshipDescription": "Research-focused scholarships with additional research funding.",
+    "Stipend": 3000,
+    "PostDate": "2025-01-09",
+    "ServiceCharge": 250,
+    "ApplicationFees": 90,
+    "Rating": 4.8
+  },
+  {
+    "id": 7,
+    "UniversityName": "ETH Zurich",
+    "UniversityImage": "https://i.ibb.co.com/bKWbRVb/ETH-Zurich.jpg",
+    "ScholarshipCategory": "Masters",
+    "UniversityLocation": {
+      "Country": "Switzerland",
+      "City": "Zurich"
+    },
+    "ApplicationDeadline": "2025-09-01",
+    "SubjectName": "Robotics",
+    "SubjectCategory": "Engineering & Technology",
+    "ScholarshipDescription": "Covers tuition and a monthly stipend for selected students.",
+    "Stipend": 1800,
+    "PostDate": "2025-01-07",
+    "ServiceCharge": 260,
+    "ApplicationFees": 70,
+    "Rating": 4.9
+  },
+  {
+    "id": 8,
+    "UniversityName": "University of Tokyo",
+    "UniversityImage": "https://i.ibb.co.com/DCLdfW0/Tokyo-University.jpg",
+    "ScholarshipCategory": "Undergraduate",
+    "UniversityLocation": {
+      "Country": "Japan",
+      "City": "Tokyo"
+    },
+    "ApplicationDeadline": "2025-10-15",
+    "SubjectName": "Economics",
+    "SubjectCategory": "Social Sciences",
+    "ScholarshipDescription": "Partial funding with opportunities for internships.",
+    "Stipend": null,
+    "PostDate": "2025-01-06",
+    "ServiceCharge": 150,
+    "ApplicationFees": 30,
+    "Rating": 4.6
+  },
+  {
+    "id": 9,
+    "UniversityName": "University of Cape Town",
+    "UniversityImage": "https://i.ibb.co.com/8btgGD7/University-of-Cape-Town.jpg",
+    "ScholarshipCategory": "Postgraduate",
+    "UniversityLocation": {
+      "Country": "South Africa",
+      "City": "Cape Town"
+    },
+    "ApplicationDeadline": "2025-11-01",
+    "SubjectName": "Public Health",
+    "SubjectCategory": "Health Sciences",
+    "ScholarshipDescription": "Full scholarships for students from developing countries.",
+    "Stipend": 1000,
+    "PostDate": "2025-01-05",
+    "ServiceCharge": 180,
+    "ApplicationFees": 50,
+    "Rating": 4.7
+  },
+  {
+    "id": 10,
+    "UniversityName": "Massachusetts Institute of Technology (MIT)",
+    "UniversityImage": "https://i.ibb.co.com/yXR7Cxz/Massachusetts-Institute-of-Technology-MIT.jpg",
+    "ScholarshipCategory": "Masters",
+    "UniversityLocation": {
+      "Country": "USA",
+      "City": "Cambridge"
+    },
+    "ApplicationDeadline": "2025-05-15",
+    "SubjectName": "Artificial Intelligence",
+    "SubjectCategory": "Science",
+    "ScholarshipDescription": "Covers 75% of tuition fees for selected students.",
+    "Stipend": 800,
+    "PostDate": "2025-01-14",
+    "ServiceCharge": 200,
+    "ApplicationFees": 60,
+    "Rating": 4.5
+  },
+  {
+    "id": 11,
+    "UniversityName": "Stanford University",
+    "UniversityImage": "https://i.ibb.co.com/Jzmgfbc/Stanford-University.jpg",
+    "ScholarshipCategory": "Need-Based",
+    "UniversityLocation": {
+      "Country": "USA",
+      "City": "Stanford"
+    },
+    "ApplicationDeadline": "2025-05-10",
+    "SubjectName": "Law",
+    "SubjectCategory": "Humanities",
+    "ScholarshipDescription": "Scholarship for financially underprivileged students pursuing law.",
+    "Stipend": null,
+    "PostDate": "2025-01-14",
+    "ServiceCharge": 120,
+    "ApplicationFees": 60,
+    "Rating": 4.5
+  },
+  {
+    "id": 12,
+    "UniversityName": "University of Oxford",
+    "UniversityImage": "https://i.ibb.co.com/jRyDkP2/University-of-Oxford.jpg",
+    "ScholarshipCategory": "Merit-Based",
+    "UniversityLocation": {
+      "Country": "UK",
+      "City": "Oxford"
+    },
+    "ApplicationDeadline": "2025-07-01",
+    "SubjectName": "Biotechnology",
+    "SubjectCategory": "Science",
+    "ScholarshipDescription": "Merit-based scholarship for exceptional students in Biotechnology.",
+    "Stipend": 25000,
+    "PostDate": "2025-01-11",
+    "ServiceCharge": 150,
+    "ApplicationFees": 70
+  }
+]

@@ -9,8 +9,10 @@ const Home = () => {
                 <Banner></Banner>
             </div>
             {/* ---Top-Scholarship--- */}
-            <div className="bg-slate-500">
+            <div className="bg-slate-100">
+            <div className="w-11/12 mx-auto">
                 <TopScholarship></TopScholarship>
+            </div>
             </div>
             {/* ---Name--- */}
             <div></div>

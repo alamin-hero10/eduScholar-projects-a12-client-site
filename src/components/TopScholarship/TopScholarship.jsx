@@ -1,39 +1,28 @@
-import { Link } from "react-router-dom";
-import harvard from "../../assets/card01.jpg"
+import { useEffect, useState } from "react";
+import TopScholarshipCard from "../TopScholarshipCard/TopScholarshipCard";
 
+// ---TopScholarship---
 const TopScholarship = () => {
+
+    // ---useState---
+    const [uniCard, setUniCard] = useState([]);
+    console.log(uniCard)
+    
+    // ---useEffect---
+    useEffect(() => {
+        fetch(`university.json`)
+            .then(res => res.json())
+            .then(data => setUniCard(data))
+    }, [])
+    // ---useEffect---
+    // ---useEffect---
+
+    // ---Return---
     return (
-        <div>
-            <div className="drop-shadow-2xl bg-white rounded-xl w-[400px] h-[500px]">
-                <div>
-                    <img
-                        className="w-[400px] h-64 object-cover"
-                        src={harvard}
-                        alt="" />
-                </div>
-                {/* Description */}
-                <div>
-                    <div>
-                        <h3>Harvard University</h3>
-                    </div>
-                    <div>
-                        <p>Fully Funded</p>
-                        <p>USA, Cambridge</p>
-                    </div>
-                    <div>
-                        <p>STEM</p>
-                        <p>Fully Funded</p>
-                    </div>
-                    <div>
-                        <p>$75</p>
-                        <p>2025-03-15</p>
-                    </div>
-                </div>
-                {/* Button */}
-                <Link>
-                    <button className="btn btn-accent">Details</button>
-                </Link>
-            </div>
+        <div className="grid grid-cols-1 gap-y-9 md:grid-cols-3 lg:grid-cols-4 py-32">
+            {
+                uniCard.map((cardData) => <TopScholarshipCard key={cardData.id} cardData={cardData}></TopScholarshipCard>)
+            }
         </div>
     );
 };

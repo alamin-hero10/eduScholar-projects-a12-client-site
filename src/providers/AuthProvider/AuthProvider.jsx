@@ -15,35 +15,38 @@ const AuthProvider = ({ children }) => {
     const [success, setSuccess] = useState();
 
 
-    // ---Handle Register/SignUp---
-    const handleRegister = (email, password) => {
+    // ---Register/SignUp---
+    const Register = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    // ---Handle LogIn/SignIn---
-    const handleLogIn = (email, password) => {
+    // ---LogIn/SignIn---
+    const LogIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     // ---Handle Google Login---
-    const handleGoogleLogin = () => {
+    const GoogleLogin = () => {
         return signInWithPopup(auth, googleProvider)
     }
 
     // ---Handle Update Profile---
-    const manageUpdateProfile = (updatedData) => {
-        return updateProfile(auth.currentUser, updatedData)
+    const manageUpdateProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo
+        });
     }
 
     // ---Handle SignOut/Logout---
-    const handleLogOut = () => {
+    const LogOut = () => {
+        setLoading(true);
         signOut(auth)
     }
 
     // ---Handle Forgot Password---
-    const handleForgotPassword = (email) => {
+    const ForgotPassword = (email) => {
         sendPasswordResetEmail(auth, email)
     }
 
@@ -68,11 +71,11 @@ const AuthProvider = ({ children }) => {
 
     // ---auth Info---
     const authInfo = {
-        handleRegister,
-        handleLogIn,
-        handleGoogleLogin,
-        handleLogOut,
-        handleForgotPassword,
+        Register,
+        LogIn,
+        GoogleLogin,
+        LogOut,
+        ForgotPassword,
         manageUpdateProfile,
         setUser,
         user,
@@ -82,7 +85,7 @@ const AuthProvider = ({ children }) => {
         setLoading,
     }
 
-
+    // ---Return---
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

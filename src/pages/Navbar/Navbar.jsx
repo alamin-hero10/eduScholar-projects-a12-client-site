@@ -1,24 +1,26 @@
-import { useContext, useState } from "react";
 import "../Navbar/Navbar.css";
-
-// import logo and images
-import logo from "../../assets/visaLogo.png"
 import userIcon from "../../assets/user.png"
 import { Link, NavLink } from "react-router-dom";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 
 const Navbar = () => {
 
-    const { user, handleLogOut } = useContext(AuthContext);
+    // ---AuthContext---
+    const { user, LogOut } = useContext(AuthContext);
+    console.log(user)
 
+    // ---Use State---
     const [theme, setTheme] = useState("light");
 
+    // ---Handle Toggle Theme---
     const handleToggleTheme = () => {
         const newTheme = theme === "light" ? "dark" : "light";
         setTheme(newTheme)
         document.documentElement.setAttribute("data-theme", newTheme)
     }
 
+    // ---Return---
     return (
         <div className="navbar bg-[#F1F5F9] w-11/12 mx-auto px-0 py-2">
             <div className="navbar-start">
@@ -44,17 +46,17 @@ const Navbar = () => {
                         <NavLink to="/" className="text-base font-medium text-gray-700 uppercase">Home</NavLink>
                         <NavLink to="/rooms" className="text-base font-medium text-gray-700 uppercase">Rooms</NavLink>
                         <NavLink to="/myBooking" className="text-base font-medium text-gray-700 uppercase">My Bookings</NavLink>
-                        <NavLink to="/aboutUs" className="text-lg font-medium text-gray-700 uppercase">About Us</NavLink>
+                        <NavLink to="/aboutUs" className="text-lg font-medium text-gray-700 uppercase">Admin Dashboard</NavLink>
                         <NavLink to="/myVisaApplications" className="text-base font-medium text-gray-700 uppercase">Contact Us</NavLink>
                     </ul>
                 </div>
                 {/* Logo-Link */}
                 <Link to="/">
                     <div className="flex items-center gap-3">
-                        <img className="w-20 md:w-24" src={logo} alt="Logo Visa" />
+                        {/* <img className="w-20 md:w-24" src={logo} alt="Logo Visa" /> */}
                         <div className="hidden md:block">
-                            <h1 className="text-2xl font-bold">MODERN</h1>
-                            <p className="text-base text-end font-bold tracking-[15px]">HOTEL</p>
+                            <h1 className="text-2xl font-bold">Education</h1>
+                            <p className="text-base text-end font-bold tracking-[2.5px]">Scholarship</p>
                         </div>
                     </div>
                 </Link>
@@ -63,9 +65,9 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-10">
                     <NavLink to="/" className="text-lg text-black font-base uppercase">Home</NavLink>
-                    <NavLink to="/rooms" className="text-lg text-black font-base uppercase">Rooms</NavLink>
-                    <NavLink to="/myBooking" className="text-lg text-black font-base uppercase">My Booking</NavLink>
-                    <NavLink to="/aboutUs" className="text-lg text-black font-base uppercase">About Us</NavLink>
+                    <NavLink to="/allScholarship" className="text-lg text-black font-base uppercase">All Scholarship</NavLink>
+                    <NavLink to="/userDashboard" className="text-lg text-black font-base uppercase">User Dashboard</NavLink>
+                    <NavLink to="/adminDashboard" className="text-lg text-black font-base uppercase">Admin Dashboard</NavLink>
                     <NavLink to="/contactUs" className="text-lg text-black font-base uppercase">Contact Us</NavLink>
                 </ul>
             </div>
@@ -94,7 +96,7 @@ const Navbar = () => {
                         </svg>
                     </label>
                 </div>
-                {/* ------------------------- */}
+                {/* ------ */}
                 <div className="">
                     <div className="dropdown dropdown-end">
                         <div className="flex">
@@ -102,16 +104,16 @@ const Navbar = () => {
                                 user && user?.email ? <>
                                     <div className="relative group">
                                         <div className="flex items-center gap-5 mr-5 cursor-pointer">
-                                            <img className="w-[50px] h-[50px] rounded-full" src={user?.photoURL || userIcon} alt="Profile" />
+                                            <img className="w-[50px] h-[50px] rounded-full" src={user?.photoURL || userIcon} alt="User Profile" />
                                         </div>
                                         <div className="absolute hidden group-hover:block bg-slate-300 rounded px-3 top-[50px] -right-20 transform -translate-x-1/2 z-10">
                                             <div className="w-52">
                                                 <div className="text-2xl text-center font-semibold my-2">
-                                                    {user?.displayName || ""}
+                                                    {user?.displayName || "User"}
                                                 </div>
                                                 <div className="text-center my-3">
                                                     {user?.displayName &&
-                                                        <button onClick={handleLogOut} type="button" className="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-lg px-5 py-1.5 text-center me-2 mb-2">Logout</button> || ""}
+                                                        <button onClick={LogOut} type="button" className="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-lg px-5 py-1.5 text-center me-2 mb-2">Logout</button> || ""}
                                                 </div>
                                             </div>
                                         </div>

@@ -1,79 +1,51 @@
-import { Helmet } from "react-helmet";
+import { useContext, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { NavLink, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import { useContext, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+
 
 const Login = () => {
 
-    const { handleLogIn, handleGoogleLogin, handleForgotPassword } = useContext(AuthContext)
+    // ---Use Context---
+    const { LogIn } = useContext(AuthContext);
 
+    // ---Use State---
     const [error, setError] = useState();
-    const emailRef = useRef();
 
+    // ---useNavigate---
     const navigate = useNavigate();
 
-    // HandleLogInSubmit
+    // ---Return---
     const handleLogInSubmit = (event) => {
         event.preventDefault();
-        toast("Your Log in Successfully")
 
         // --- Get form data ---
-        const email = event.target.email.value;
-        const password = event.target.password.value;
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
 
         // Firebase Auth Provider:
-        handleLogIn(email, password)
+        LogIn(email, password)
             .then(result => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Login Successfully!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
                 navigate("/")
             })
             .catch(error => {
                 setError(error.message)
-            }
-            )
-
-        // ---Password Validation---
-        const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
-        if (!passwordRegex.test(password)) {
-            setError("Password must be contains at least one Uppercase, one Lowercase, and length has to be at least 6 characters")
-            return;
-        }
+            })
     }
-
-    // -----Google Login Handler-----
-    const googleLoginHandler = async (email) => {
-        toast("Google Log in Successfully")
-        try {
-            await handleGoogleLogin()
-            navigate("/")
-        }
-        catch (error) {
-            setError(error.message)
-        }
-    }
-
-    // -----Forgot Password Handler-----
-    const ForgotPasswordHandler = () => {
-        const email = emailRef.current.value;
-        if (!email) {
-            toast("Please provide a valid email address")
-        }
-        else {
-            handleForgotPassword(email)
-                .then(() => {
-                    toast("Password reset email sent, Please check your email")
-                })
-        }
-    }
-
-
+    // ---Return---
+    // ---Return---
     return (
         <div>
-            <Helmet>
-                <title>Login | Modern Hotel</title>
-            </Helmet>
             <div className="hero min-h-screen">
                 <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl">
                     <form onSubmit={handleLogInSubmit} className="card-body">
@@ -86,7 +58,6 @@ const Login = () => {
                             <input
                                 name="email"
                                 type="email"
-                                ref={emailRef}
                                 placeholder="Email"
                                 className="input input-bordered"
                                 required />
@@ -98,14 +69,15 @@ const Login = () => {
                             </label>
                             <input
                                 name="password"
-                                type="text"
+                                type="password"
                                 placeholder="Password"
                                 className="input input-bordered"
                                 required />
-                            <label onClick={ForgotPasswordHandler} className="label">
+                            <label onClick="" className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
+                        {/* Error Message */}
                         <div>
                             {
                                 error &&
@@ -116,24 +88,24 @@ const Login = () => {
                         </div>
                         {/* ---Login Button--- */}
                         <div className="form-control mt-6">
-                            <button type="button" className="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-lg px-5 py-1.5 text-center me-2 mb-2">Login</button>
-                            <p className="mt-3 text-center">Don’t have an Account ? <NavLink to="/register" className="text-lg font-medium text-green-600 mt-3">Register</NavLink> </p>
+                            <button type="submit" className="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-lg px-5 py-1.5 text-center me-2 mb-2">Login</button>
+                            <p className="mt-3 text-center">Don’t have an Account ? <Link to="/register" className="text-lg font-medium text-green-600 mt-3">Register</Link></p>
                         </div>
                     </form>
                     {/* Google and Github Login */}
                     <div className="flex items-center justify-center gap-5 mb-5">
                         <div className="">
-                            <button onClick={googleLoginHandler}><FcGoogle className="size-10" /></button>
+                            <button onClick=""><FcGoogle className="size-10" /></button>
                         </div>
                         <div className="">
-                            <button onClick={googleLoginHandler}> <FaGithub className="size-10" /></button>
+                            <button onClick=""> <FaGithub className="size-10" /></button>
                         </div>
                     </div>
                 </div>
-                <ToastContainer
+                {/* <ToastContainer
                     position="bottom-right"
                     autoClose={5000}
-                ></ToastContainer>
+                ></ToastContainer> */}
             </div >
         </div>
     );
