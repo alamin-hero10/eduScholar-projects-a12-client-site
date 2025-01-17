@@ -3,12 +3,12 @@ import userIcon from "../../assets/user.png"
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
+import logo from "../../assets/eduLogo.png"
 
 const Navbar = () => {
 
     // ---AuthContext---
     const { user, LogOut } = useContext(AuthContext);
-    console.log(user)
 
     // ---Use State---
     const [theme, setTheme] = useState("light");
@@ -53,7 +53,7 @@ const Navbar = () => {
                 {/* Logo-Link */}
                 <Link to="/">
                     <div className="flex items-center gap-3">
-                        {/* <img className="w-20 md:w-24" src={logo} alt="Logo Visa" /> */}
+                        <img className="w-20" src={logo} alt="Logo Visa" />
                         <div className="hidden md:block">
                             <h1 className="text-2xl font-bold">Education</h1>
                             <p className="text-base text-end font-bold tracking-[2.5px]">Scholarship</p>

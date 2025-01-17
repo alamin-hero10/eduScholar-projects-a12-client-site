@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 const TopScholarshipCard = ({ cardData }) => {
 
     // ---useloaderdata---
-    const { UniversityName, UniversityImage, ScholarshipCategory, UniversityLocation, ApplicationDeadline, SubjectName, SubjectCategory, ApplicationFees } = cardData;
-    console.log(ApplicationDeadline)
+    const { _id, UniversityName, UniversityImage, ScholarshipCategory, UniversityLocation, ApplicationDeadline, SubjectName, SubjectCategory, ApplicationFees } = cardData || {};
 
     // ---Return---
     return (
@@ -38,7 +37,7 @@ const TopScholarshipCard = ({ cardData }) => {
                         <p>{ApplicationDeadline}</p>
                     </div>
                     {/* Button */}
-                    <Link>
+                    <Link to={`/scholarshipDetails/${_id}`}>
                         <button className="btn btn-accent">Details</button>
                     </Link>
                 </div>

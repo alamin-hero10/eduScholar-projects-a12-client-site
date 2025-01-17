@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "UniversityName": "Harvard University",
     "UniversityImage": "https://i.ibb.co.com/VC9f4WL/harvard-university.jpg",
     "ScholarshipCategory": "Undergraduate",
@@ -19,7 +18,6 @@
     "Rating": 4.9
   },
   {
-    "id": 2,
     "UniversityName": "University of Oxford",
     "UniversityImage": "https://i.ibb.co.com/BrCJZCS/University-of-Cambridge.jpg",
     "ScholarshipCategory": "Postgraduate",
@@ -38,7 +36,6 @@
     "Rating": 4.8
   },
   {
-    "id": 3,
     "UniversityName": "Stanford University",
     "UniversityImage": "https://i.ibb.co.com/Jzmgfbc/Stanford-University.jpg",
     "ScholarshipCategory": "PhD",
@@ -57,7 +54,6 @@
     "Rating": 4.7
   },
   {
-    "id": 4,
     "UniversityName": "University of Toronto",
     "UniversityImage": "https://i.ibb.co.com/0fMWnbn/University-of-Toronto.jpg",
     "ScholarshipCategory": "Masters",
@@ -76,7 +72,6 @@
     "Rating": 4.6
   },
   {
-    "id": 5,
     "UniversityName": "Australian National University",
     "UniversityImage": "https://i.ibb.co.com/tq0zBJP/australian-national-university.jpg",
     "ScholarshipCategory": "Undergraduate",
@@ -95,7 +90,6 @@
     "Rating": 4.5
   },
   {
-    "id": 6,
     "UniversityName": "National University of Singapore",
     "UniversityImage": "https://i.ibb.co.com/p6H4ZGb/National-University-of-Singapore.jpg",
     "ScholarshipCategory": "PhD",
@@ -114,7 +108,6 @@
     "Rating": 4.8
   },
   {
-    "id": 7,
     "UniversityName": "ETH Zurich",
     "UniversityImage": "https://i.ibb.co.com/bKWbRVb/ETH-Zurich.jpg",
     "ScholarshipCategory": "Masters",
@@ -133,7 +126,6 @@
     "Rating": 4.9
   },
   {
-    "id": 8,
     "UniversityName": "University of Tokyo",
     "UniversityImage": "https://i.ibb.co.com/DCLdfW0/Tokyo-University.jpg",
     "ScholarshipCategory": "Undergraduate",
@@ -152,7 +144,6 @@
     "Rating": 4.6
   },
   {
-    "id": 9,
     "UniversityName": "University of Cape Town",
     "UniversityImage": "https://i.ibb.co.com/8btgGD7/University-of-Cape-Town.jpg",
     "ScholarshipCategory": "Postgraduate",
@@ -171,7 +162,6 @@
     "Rating": 4.7
   },
   {
-    "id": 10,
     "UniversityName": "Massachusetts Institute of Technology (MIT)",
     "UniversityImage": "https://i.ibb.co.com/yXR7Cxz/Massachusetts-Institute-of-Technology-MIT.jpg",
     "ScholarshipCategory": "Masters",
@@ -190,7 +180,6 @@
     "Rating": 4.5
   },
   {
-    "id": 11,
     "UniversityName": "Stanford University",
     "UniversityImage": "https://i.ibb.co.com/Jzmgfbc/Stanford-University.jpg",
     "ScholarshipCategory": "Need-Based",
@@ -209,7 +198,6 @@
     "Rating": 4.5
   },
   {
-    "id": 12,
     "UniversityName": "University of Oxford",
     "UniversityImage": "https://i.ibb.co.com/jRyDkP2/University-of-Oxford.jpg",
     "ScholarshipCategory": "Merit-Based",

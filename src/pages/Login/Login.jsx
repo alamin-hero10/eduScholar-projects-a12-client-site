@@ -4,12 +4,13 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 
 const Login = () => {
 
     // ---Use Context---
-    const { LogIn } = useContext(AuthContext);
+    const { LogIn, GoogleLogin } = useContext(AuthContext);
 
     // ---Use State---
     const [error, setError] = useState();
@@ -17,7 +18,7 @@ const Login = () => {
     // ---useNavigate---
     const navigate = useNavigate();
 
-    // ---Return---
+    // ---Handle LogIn Submit---
     const handleLogInSubmit = (event) => {
         event.preventDefault();
 
@@ -42,7 +43,24 @@ const Login = () => {
                 setError(error.message)
             })
     }
-    // ---Return---
+    // ---Google Login Handler---
+    const googleLoginHandler = () => {
+        toast("Google Log in Successfully")
+        GoogleLogin()
+            .then(result => {
+                Swal.fire({
+                    title: "Google Log in Successfully!",
+                    icon: "success",
+                    draggable: true
+                });
+                navigate("/")
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+
+
     // ---Return---
     return (
         <div>
@@ -95,7 +113,7 @@ const Login = () => {
                     {/* Google and Github Login */}
                     <div className="flex items-center justify-center gap-5 mb-5">
                         <div className="">
-                            <button onClick=""><FcGoogle className="size-10" /></button>
+                            <button onClick={googleLoginHandler}><FcGoogle className="size-10" /></button>
                         </div>
                         <div className="">
                             <button onClick=""> <FaGithub className="size-10" /></button>

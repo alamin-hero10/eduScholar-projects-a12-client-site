@@ -1,30 +1,32 @@
 import { useEffect, useState } from "react";
 import TopScholarshipCard from "../TopScholarshipCard/TopScholarshipCard";
+import axios from "axios";
 
 // ---TopScholarship---
 const TopScholarship = () => {
 
     // ---useState---
-    const [uniCard, setUniCard] = useState([]);
-    console.log(uniCard)
-    
+    const [scholarships, setScholarships] = useState([]);
+
     // ---useEffect---
     useEffect(() => {
-        fetch(`university.json`)
-            .then(res => res.json())
-            .then(data => setUniCard(data))
+        fetchAllScholarship()
     }, [])
-    // ---useEffect---
-    // ---useEffect---
 
     // ---Return---
-    return (
-        <div className="grid grid-cols-1 gap-y-9 md:grid-cols-3 lg:grid-cols-4 py-32">
-            {
-                uniCard.map((cardData) => <TopScholarshipCard key={cardData.id} cardData={cardData}></TopScholarshipCard>)
-            }
-        </div>
-    );
+    const fetchAllScholarship = async () => {
+    const { data } = await axios.get(`http://localhost:5100/scholarships`)
+    setScholarships(data)
+}
+
+// ---Return---
+return (
+    <div className="grid grid-cols-1 gap-y-9 md:grid-cols-3 lg:grid-cols-4 py-32">
+        {
+            scholarships.map((cardData) => <TopScholarshipCard key={cardData._id} cardData={cardData}></TopScholarshipCard>)
+        }
+    </div>
+);
 };
 
 export default TopScholarship;
