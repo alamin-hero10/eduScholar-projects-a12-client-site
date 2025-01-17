@@ -5,6 +5,8 @@ import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import ScholarshipDetails from "../../components/ScholarshipDetails/ScholarshipDetails";
+import ApplyForm from "../../components/ApplyForm/ApplyForm";
+import MyApplications from "../../pages/MyApplications/MyApplications";
 
 const Router = createBrowserRouter([
     {
@@ -31,6 +33,14 @@ const Router = createBrowserRouter([
             {
                 path: "/scholarshipDetails/:id",
                 element: <ScholarshipDetails></ScholarshipDetails>
+            },
+            {
+                path: "/applyForm/:id",
+                element: <ApplyForm></ApplyForm>
+            },
+            {
+                path: "/myApplication",
+                element: <MyApplications></MyApplications>
             }
         ] 
     }

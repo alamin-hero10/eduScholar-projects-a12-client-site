@@ -4,7 +4,8 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 
 const Login = () => {
@@ -113,17 +114,17 @@ const Login = () => {
                     {/* Google and Github Login */}
                     <div className="flex items-center justify-center gap-5 mb-5">
                         <div className="">
-                            <button onClick={googleLoginHandler}><FcGoogle className="size-10" /></button>
+                            <SocialLogin></SocialLogin>
                         </div>
                         <div className="">
                             <button onClick=""> <FaGithub className="size-10" /></button>
                         </div>
                     </div>
                 </div>
-                {/* <ToastContainer
+                <ToastContainer
                     position="bottom-right"
                     autoClose={5000}
-                ></ToastContainer> */}
+                ></ToastContainer>
             </div >
         </div>
     );

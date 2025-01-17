@@ -1,12 +1,15 @@
 import { useForm } from "react-hook-form";
-import { FcGoogle } from "react-icons/fc";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Swal from "sweetalert2";
-import toast from "react-hot-toast";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Register = () => {
+
+    // ---Hook-useAxiosPublic---
+    const axiosPublic = useAxiosPublic();
 
     // ---React-Hook-Form---
     const {
@@ -16,10 +19,7 @@ const Register = () => {
     } = useForm();
 
     // ----- UseContext -----
-    const { Register, GoogleLogin, manageUpdateProfile } = useContext(AuthContext);
-
-    // ---useNavigate---
-    const [error, setError] = useState();
+    const { Register, manageUpdateProfile } = useContext(AuthContext);
 
     // ---useNavigate---
     const navigate = useNavigate();
@@ -32,16 +32,29 @@ const Register = () => {
             data.password
         )
             .then(result => {
-                const newUser = result.user;
+                console.log(result)
                 // ---manage Update Profile---
                 manageUpdateProfile(data.name, data.photoURL)
                     .then(() => {
-                        Swal.fire({
-                            title: "Register Successfully!",
-                            icon: "success",
-                            draggable: true
-                        });
-                        navigate("/");
+                        // Create user entry in the database
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email,
+                            photo: data.photoURL
+                        }
+                        axiosPublic.post("/users", userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log("user add to the database")
+                                    // --Swal--
+                                    Swal.fire({
+                                        title: "Register Successfully!",
+                                        icon: "success",
+                                        draggable: true
+                                    });
+                                    navigate("/");
+                            }
+                        })
                     })
                     .catch(error => {
                         console.log(error)
@@ -52,22 +65,7 @@ const Register = () => {
             });
     };
 
-    // ---Google Login Handler---
-    const googleLoginHandler = () => {
-        toast("Google Log in Successfully")
-        GoogleLogin()
-            .then(result => {
-                Swal.fire({
-                    title: "Google Log in Successfully!",
-                    icon: "success",
-                    draggable: true
-                });
-                navigate("/")
-            })
-            .catch(error => {
-                setError(error.message)
-            })
-    }
+    
 
 
     // ---Return---
@@ -163,12 +161,7 @@ const Register = () => {
                         </div>
                         {/* ---Google LogIn--- */}
                         <div className="text-center">
-                            <button onClick={googleLoginHandler} className=""><FcGoogle className="size-10" /></button>
-                        </div>
-                        <div>
-                            {
-                                error && <p className="text-red-600">{error}</p>
-                            }
+                            <SocialLogin></SocialLogin>
                         </div>
                     </form>
                 </div>
