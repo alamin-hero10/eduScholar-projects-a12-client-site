@@ -1,12 +1,11 @@
-/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-const TopScholarshipCard = ({ cardData }) => {
+const AllScholarshipCard = ({ allCardData }) => {
 
     // ---Card-Data---
-    const { _id, UniversityName, UniversityImage, ScholarshipCategory, UniversityLocation, ApplicationDeadline, SubjectName, SubjectCategory, ApplicationFees } = cardData || {};
+    const { _id, UniversityName, UniversityImage, ScholarshipCategory, UniversityLocation, ApplicationDeadline, SubjectName, SubjectCategory, ApplicationFees } = allCardData || {};
 
-    // ---Return---
+    // --Return---
     return (
         <div className="drop-shadow-2xl bg-white rounded-xl w-[400px] h-[500px]">
             <div>
@@ -44,4 +43,4 @@ const TopScholarshipCard = ({ cardData }) => {
     );
 };
 
-export default TopScholarshipCard;
+export default AllScholarshipCard;

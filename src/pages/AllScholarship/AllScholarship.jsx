@@ -1,11 +1,9 @@
-import TopScholarshipCard from "../TopScholarshipCard/TopScholarshipCard";
-import SectionTitle from "../Shared/SectionTitle/SectionTitle";
 import { useQuery } from "@tanstack/react-query";
+import SectionTitle from "../../components/Shared/SectionTitle/SectionTitle";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import AllScholarshipCard from "../../components/AllScholarshipCard/AllScholarshipCard";
 
-// ---TopScholarship---
-const TopScholarship = () => {
-
+const AllScholarship = () => {
     // ---Hook-useAxiosPublic---
     const axiosPublic = useAxiosPublic();
 
@@ -16,20 +14,20 @@ const TopScholarship = () => {
             const res = await axiosPublic.get(`/scholarships`)
             return res.data;
         }
-    })
+    });
 
     // ---Return---
     return (
-        <section>
+        <section className="w-11/12 mx-auto">
             <SectionTitle heading={"Top Scholarship"}>
             </SectionTitle>
             <div className="grid grid-cols-1 gap-y-9 md:grid-cols-3 lg:grid-cols-4 py-20">
                 {
-                    allScholarship.map((cardData) => <TopScholarshipCard key={cardData._id} cardData={cardData}></TopScholarshipCard>)
+                    allScholarship.map((allCardData) => <AllScholarshipCard key={allCardData._id} allCardData={allCardData}></AllScholarshipCard>)
                 }
             </div>
         </section>
     );
 };
 
-export default TopScholarship;
+export default AllScholarship;

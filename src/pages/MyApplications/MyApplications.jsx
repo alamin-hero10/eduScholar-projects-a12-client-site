@@ -1,35 +1,35 @@
-import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
+import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const MyApplications = () => {
 
     // ---useContext---
     const { user } = useContext(AuthContext);
 
-    // ---UseState---
-    const [applyData, setApplyData] = useState([]);
+    // ---axiosPublic---
+    const axiosPublic = useAxiosPublic();
 
-    // ---UseEffect---
-    useEffect(() => {
-        fetchApplicationData()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user]);
+    // ---useQuery---
+    const { data: applyData = [] } = useQuery({
+        queryKey: ["applyData"],
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/applyScholarship/${user?.email}`)
+            return res.data;
+        }
+    })
 
-    // ---Axios DB Fetch the Data---
-    const fetchApplicationData = async () => {
-        const { data } = await axios.get(`http://localhost:5100/applyScholarship/${user?.email}`)
-        setApplyData(data)
-    }
+    // ---Return---
     return (
         <div>
             <div className="w-11/12 md:mx-auto mx-3 my-10 min-h-screen">
                 <Helmet>
-                    <title>My Booking| Modern Hotel</title>
+                    <title>My Applications | Education Scholarship</title>
                 </Helmet>
-                {/* My Booking Room Count */}
+                {/* ---My Application Count--- */}
                 <div className="">
                     <h3 className="text-lg font-semibold">My Application: <span className="bg-[#ECFDF5] text-xs text-[#059669] px-3 py-1 rounded-3xl">{applyData.length} application</span></h3>
                 </div>
@@ -49,7 +49,7 @@ const MyApplications = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* Dynamic tr My Booking Room Table*/}
+                            {/* Dynamic tr My Application Table*/}
                             {
                                 applyData.map((apply) =>
                                     <tr key={apply._id}>

@@ -1,34 +1,37 @@
 import { useContext, useState } from "react";
 import { FaGithub } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 
 const Login = () => {
 
-    // ---Use Context---
-    const { LogIn, GoogleLogin } = useContext(AuthContext);
+    // ---useContext---
+    const { LogIn } = useContext(AuthContext);
 
-    // ---Use State---
+    // ---useState---
     const [error, setError] = useState();
 
     // ---useNavigate---
     const navigate = useNavigate();
 
+    // ---useLocation---
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     // ---Handle LogIn Submit---
     const handleLogInSubmit = (event) => {
         event.preventDefault();
 
-        // --- Get form data ---
+        // ---Get form data---
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
 
-        // Firebase Auth Provider:
+        // ---Firebase Auth Provider:---
         LogIn(email, password)
             .then(result => {
                 Swal.fire({
@@ -38,29 +41,12 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate("/")
+                navigate(from, {replace: true})
             })
             .catch(error => {
                 setError(error.message)
             })
     }
-    // ---Google Login Handler---
-    const googleLoginHandler = () => {
-        toast("Google Log in Successfully")
-        GoogleLogin()
-            .then(result => {
-                Swal.fire({
-                    title: "Google Log in Successfully!",
-                    icon: "success",
-                    draggable: true
-                });
-                navigate("/")
-            })
-            .catch(error => {
-                setError(error.message)
-            })
-    }
-
 
     // ---Return---
     return (
@@ -88,7 +74,7 @@ const Login = () => {
                             </label>
                             <input
                                 name="password"
-                                type="password"
+                                type="text"
                                 placeholder="Password"
                                 className="input input-bordered"
                                 required />

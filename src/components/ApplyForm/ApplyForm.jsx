@@ -1,45 +1,37 @@
-import axios from "axios";
 import { useContext } from "react";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { useQuery } from "@tanstack/react-query";
 
 const ApplyForm = () => {
+
+    // ---useParams---
+    const { user } = useContext(AuthContext);
 
     // ---Hook-useAxiosPublic---
     const axiosPublic = useAxiosPublic();
 
     // ---useParams---
-    const { user } = useContext(AuthContext);
-
-    // ---useParams---
     const { id } = useParams();
     console.log(id)
 
-    // ---useState---
-    const [scholarship, setScholarship] = useState({});
+    // ---useQuery---
+    const { data: scholarship = [] } = useQuery({
+        queryKey: ["scholarship"],
+        queryFn: async () => {
+            const res = await axiosPublic.get(`/scholarship/${id}`)
+            return res.data;
+        }
+    })
 
     // ---Scholarship Data---
     const { _id, UniversityName, ScholarshipCategory, SubjectCategory, ApplicationFees, ServiceCharge } = scholarship || {};
 
-    // ---useEffect---
-    useEffect(() => {
-        fetchScholarshipData()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [id])
-
-    // ---Fetch Scholarship Data---
-    const fetchScholarshipData = async () => {
-        const { data } = await axios.get(`http://localhost:5100/scholarship/${id}`)
-        setScholarship(data)
-    }
-
-    // ------------------------------------------
+    // ---Handle Apply Scholarship---
     const handleApplyScholarship = (event) => {
         event.preventDefault();
-
         // -----Form Data-----
         const form = event.target;
         const universityName = form.universityName.value;
@@ -56,12 +48,11 @@ const ApplyForm = () => {
         const email = user?.email;
         const userName = user?.displayName;
         const currentDate = new Date().toDateString();
-        const id = _id;
+        const scholarshipId = _id;
         const applicationFees = ApplicationFees;
         const serviceCharge = ServiceCharge;
 
-        const newApplyData = { universityName, subjectCategory, scholarshipCategory, selectDegree, sscResult, hscResult, phoneNumber, applicationAddress, selectStudyGap, selectGender, photo, email, userName, currentDate, id, applicationFees, serviceCharge }
-        // console.log(newApplyData)
+        const newApplyData = { universityName, subjectCategory, scholarshipCategory, selectDegree, sscResult, hscResult, phoneNumber, applicationAddress, selectStudyGap, selectGender, photo, email, userName, currentDate, scholarshipId, applicationFees, serviceCharge }
 
         // ---Axios Public---
         axiosPublic.post("/applyScholarship", newApplyData)
@@ -69,7 +60,7 @@ const ApplyForm = () => {
                 if (res.data.insertedId) {
                     // --Swal--
                     Swal.fire({
-                        title: "New Application Data DB Successfully!",
+                        title: `${userName}, Your Application has been Successfully!`,
                         icon: "success",
                         draggable: true
                     });

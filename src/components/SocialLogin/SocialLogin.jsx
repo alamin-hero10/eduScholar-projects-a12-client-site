@@ -11,7 +11,7 @@ const SocialLogin = () => {
     // ---Hook-useAxiosPublic---
     const axiosPublic = useAxiosPublic();
 
-    // ----- UseContext -----
+    // ---useContext---
     const { GoogleLogin } = useContext(AuthContext);
 
     // ---useNavigate---
@@ -19,7 +19,6 @@ const SocialLogin = () => {
 
     // ---useNavigate---
     const [error, setError] = useState();
-
 
     // ---Google Login Handler---
     const googleLoginHandler = () => {
@@ -51,11 +50,14 @@ const SocialLogin = () => {
                 setError(error.message)
             })
     }
+
+    // ---Return---
     return (
         <div>
             <div>
                 <button onClick={googleLoginHandler} className=""><FcGoogle className="size-10" /></button>
             </div>
+            {/* Error */}
             <div>
                 {
                     error && <p className="text-red-600">{error}</p>
