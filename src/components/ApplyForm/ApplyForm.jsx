@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const ApplyForm = () => {
 
-    // ---useParams---
+    // ---useContext---
     const { user } = useContext(AuthContext);
 
     // ---Hook-useAxiosPublic---

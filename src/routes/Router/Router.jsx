@@ -6,10 +6,11 @@ import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import ScholarshipDetails from "../../components/ScholarshipDetails/ScholarshipDetails";
 import ApplyForm from "../../components/ApplyForm/ApplyForm";
-import MyApplications from "../../pages/MyApplications/MyApplications";
+import MyApplications from "../../pages/UserDashboardPage/MyApplications/MyApplications";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AllScholarship from "../../pages/AllScholarship/AllScholarship";
-import Dashboard from "../../layouts/Dashboard/Dashboard";
+import UserDashboard from "../../layouts/UserDashboard/UserDashboard";
+import MyProfile from "../../pages/UserDashboardPage/MyProfile/MyProfile";
 
 const Router = createBrowserRouter([
     {
@@ -42,31 +43,23 @@ const Router = createBrowserRouter([
                 element: <PrivateRoute>
                     <ApplyForm></ApplyForm>
                 </PrivateRoute>
-            },
-            {
-                path: "/myApplication",
-                element: <PrivateRoute>
-                    <MyApplications></MyApplications>
-                </PrivateRoute>
             }
-        ] 
+        ]
     },
     {
-        path: "/dashboaed",
-        element: <Dashboard></Dashboard>,
+        path: "/userDashboard",
+        element: <UserDashboard></UserDashboard>,
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
-                path: "/dashboard/myProfile",
-                element: <p>My Profile</p>
+                path: "myProfile",
+                element: <MyProfile></MyProfile>
             },
             {
-                path: "/dashboard/myProfile",
-                element: <p>My Profile</p>
-            },
-            {
-                path: "/dashboard/myProfile",
-                element: <p>My Profile</p>
+                path: "myApplication",
+                element: <PrivateRoute>
+                    <MyApplications></MyApplications>
+                </PrivateRoute>
             }
         ]
     }

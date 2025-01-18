@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
+import { AuthContext } from "../../../providers/AuthProvider/AuthProvider";
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const MyApplications = () => {
 
@@ -14,13 +15,40 @@ const MyApplications = () => {
     const axiosPublic = useAxiosPublic();
 
     // ---useQuery---
-    const { data: applyData = [] } = useQuery({
+    const { refetch, data: applyData = [] } = useQuery({
         queryKey: ["applyData"],
         queryFn: async () => {
             const res = await axiosPublic.get(`/applyScholarship/${user?.email}`)
             return res.data;
         }
-    })
+    });
+
+    // Toast Delete Confirm:
+    const handleCancel = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosPublic.delete(`/applyScholarship/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+    }
 
     // ---Return---
     return (
@@ -67,15 +95,15 @@ const MyApplications = () => {
                                             <div className="flex items-center gap-2">
                                                 {/* <Link to={`/myBookingUpdate/${room._id}`}> */}
                                                 <Link to="/">
-                                                    <button className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-3 py-2 text-center">Update Date</button>
+                                                    <button className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-3 py-2 text-center">Details</button>
                                                 </Link>
                                                 <button
                                                     // onClick={() => document.getElementById('my_modal_4').showModal()}
                                                     className="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2 text-center">
-                                                    Review
+                                                    Edit
                                                 </button>
                                                 <button
-                                                    // onClick={() => handleCancelConfirm(room._id)}
+                                                    onClick={() => handleCancel(apply._id)}
                                                     className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2 text-center">Cancel</button>
                                             </div>
                                         </td>
