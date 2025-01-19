@@ -27,10 +27,10 @@ const SocialLogin = () => {
             .then(result => {
                 // Create user entry in the database
                 const userGoogleInfo = {
-                    name: result.user.displayName,
-                    email: result.user.email,
-                    photo: result.user.photoURL,
-                    signInTime: result.user.metadata.lastSignInTime
+                    name: result.user?.displayName,
+                    email: result.user?.email,
+                    photo: result.user?.photoURL,
+                    signInTime: result.user?.metadata.lastSignInTime
                 }
                 axiosPublic.post("/users", userGoogleInfo)
                     .then(res => {
@@ -41,6 +41,7 @@ const SocialLogin = () => {
                                 icon: "success",
                                 draggable: true
                             });
+                            console.log(res.data)
                             navigate("/")
                         }
                     })

@@ -284,6 +284,11 @@ const ScholarshipDetails = () => {
                 <Link to={`/applyForm/${_id}`}>
                     <button className="btn btn-primary mt-14">Apply Scholarship</button>
                 </Link>
+                {/* Button */}
+                <Link to={`/userDashboard/payment`}>
+                    <button
+                    className="btn btn-primary mt-14">Payment</button>
+                </Link>
             </div>
         </div>
     );

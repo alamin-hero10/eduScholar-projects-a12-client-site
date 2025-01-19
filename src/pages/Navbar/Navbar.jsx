@@ -46,7 +46,7 @@ const Navbar = () => {
                         <NavLink to="/" className="text-base font-medium text-gray-700 uppercase">Home</NavLink>
                         <NavLink to="/allScholarship" className="text-base font-medium text-gray-700 uppercase">All Scholarship</NavLink>
                         <NavLink to="/adminDashboard" className="text-lg font-medium text-gray-700 uppercase">Admin Dashboard</NavLink>
-                        <NavLink to="/userDashboard" className="text-base font-medium text-gray-700 uppercase">User Dashboard</NavLink>
+                        <NavLink to="/dashboard" className="text-base font-medium text-gray-700 uppercase">User Dashboard</NavLink>
                         <NavLink to="/contactUs" className="text-base font-medium text-gray-700 uppercase">Contact Us</NavLink>
                     </ul>
                 </div>
@@ -66,8 +66,11 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal px-1 gap-10">
                     <NavLink to="/" className="text-lg text-black font-base uppercase">Home</NavLink>
                     <NavLink to="/allScholarship" className="text-lg text-black font-base uppercase">All Scholarship</NavLink>
+                    {
+                        
+                    }
                     <NavLink to="/adminDashboard" className="text-lg text-black font-base uppercase">Admin Dashboard</NavLink>
-                    <NavLink to="/userDashboard" className="text-lg text-black font-base uppercase">User Dashboard</NavLink>
+                    <NavLink to="/dashboard" className="text-lg text-black font-base uppercase">User Dashboard</NavLink>
                     <NavLink to="/" className="text-lg text-black font-base uppercase">No-Data</NavLink>
                     <NavLink to="/contactUs" className="text-lg text-black font-base uppercase">Contact Us</NavLink>
                 </ul>
