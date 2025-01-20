@@ -37,7 +37,7 @@ const TopScholarshipCard = ({ cardData }) => {
                 </div>
                 {/* Button */}
                 <Link to={`/scholarshipDetails/${_id}`}>
-                    <button className="btn btn-accent">Details</button>
+                    <button className="btn btn-success text-white">Details</button>
                 </Link>
             </div>
         </div>

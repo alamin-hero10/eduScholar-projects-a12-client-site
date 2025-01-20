@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Banner from "../../components/Banner/Banner";
 import TopScholarship from "../../components/TopScholarship/TopScholarship";
 import UniversityLogo from "../../components/UniversityLogo/UniversityLogo";
+import TutionFees from "../../components/TutionFees/TutionFees";
 
 const Home = () => {
     return (
@@ -24,7 +25,9 @@ const Home = () => {
                 <UniversityLogo></UniversityLogo>
             </div>
             {/* ---Name--- */}
-            <div></div>
+            <div className="w-10/12 mx-auto">
+                <TutionFees></TutionFees>
+            </div>
             {/* ---Name--- */}
             <div></div>
         </div>
