@@ -5,6 +5,7 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import { ImSpinner9 } from "react-icons/im";
 
 const Register = () => {
 
@@ -19,14 +20,13 @@ const Register = () => {
     } = useForm();
 
     // ----- UseContext -----
-    const { Register, manageUpdateProfile } = useContext(AuthContext);
+    const { Register, manageUpdateProfile, loading } = useContext(AuthContext);
 
     // ---useNavigate---
     const navigate = useNavigate();
 
     // ---Form onSubmit---
     const onSubmit = (data) => {
-        console.log(data);
         Register(
             data.email,
             data.password
@@ -41,11 +41,11 @@ const Register = () => {
                             name: data.name,
                             email: data.email,
                             photo: data.photoURL
+                            // role: "regularUser"
                         }
                         axiosPublic.post("/users", userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
-                                    console.log("user add to the database")
                                     // --Swal--
                                     Swal.fire({
                                         title: "Register Successfully!",
@@ -53,8 +53,8 @@ const Register = () => {
                                         draggable: true
                                     });
                                     navigate("/");
-                            }
-                        })
+                                }
+                            })
                     })
                     .catch(error => {
                         console.log(error)
@@ -64,8 +64,6 @@ const Register = () => {
                 console.log(error)
             });
     };
-
-    
 
 
     // ---Return---
@@ -85,20 +83,20 @@ const Register = () => {
                                 type="name"
                                 {...register("name", { required: true })}
                                 placeholder="Name"
-                                className="input input-bordered" />
+                                className="input input-bordered rounded-none" />
                             {errors.name && <span className="text-red-500">This field is required</span>}
                         </div>
                         {/* ---Photo--- */}
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Photo URL</span>
+                                <span className="label-text">Photo Upload</span>
                             </label>
                             <input
                                 name="photoURL"
                                 type="photo"
                                 {...register("photoURL", { required: true })}
                                 placeholder="Photo URL"
-                                className="input input-bordered"
+                                className="input input-bordered rounded-none"
                             />
                             {errors.photo && <span className="text-red-500">This field is required</span>}
                         </div>
@@ -112,7 +110,7 @@ const Register = () => {
                                 type="email"
                                 {...register("email", { required: true })}
                                 placeholder="Email"
-                                className="input input-bordered" />
+                                className="input input-bordered rounded-none" />
                             {errors.email && <span className="text-red-500">This field is required</span>}
                         </div>
                         {/* ---Password--- */}
@@ -130,7 +128,7 @@ const Register = () => {
                                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
                                 })}
                                 placeholder="Password"
-                                className="input input-bordered"
+                                className="input input-bordered rounded-none"
                                 required />
                             {/* Error Message */}
                             {errors.password?.type === "required" && (
@@ -156,7 +154,14 @@ const Register = () => {
                             </div>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Register</button>
+                            <button className="btn btn-primary rounded-none">
+                                {
+                                    loading ? (
+                                        <ImSpinner9 className="animate-spin m-auto size-4"></ImSpinner9 >
+                                    ) : ('Register')
+                                }
+
+                            </button>
                             <p className="text-center my-3">Already have an Account. Please <NavLink to="/login" className="text-green-600">Login</NavLink> </p>
                         </div>
                         {/* ---Google LogIn--- */}

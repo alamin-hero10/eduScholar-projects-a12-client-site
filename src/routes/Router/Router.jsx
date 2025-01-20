@@ -60,7 +60,7 @@ const Router = createBrowserRouter([
             },
             // ---Normal User Routes---
             {
-                path: "myProfile",
+                index: "true",
                 element: <MyProfile></MyProfile>
             },
             {

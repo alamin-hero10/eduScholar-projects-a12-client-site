@@ -31,6 +31,7 @@ const SocialLogin = () => {
                     email: result.user?.email,
                     photo: result.user?.photoURL,
                     signInTime: result.user?.metadata.lastSignInTime
+                    // role: "regularUser"
                 }
                 axiosPublic.post("/users", userGoogleInfo)
                     .then(res => {
