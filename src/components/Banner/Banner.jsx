@@ -8,11 +8,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 // Import slider images
-import sliderImg1 from "../../assets/image01.jpg"
-import sliderImg2 from "../../assets/image02.jpg"
-import sliderImg3 from "../../assets/image03.jpg"
-import sliderImg4 from "../../assets/image04.jpg"
-import sliderImg5 from "../../assets/image05.jpg"
+import sliderImg1 from "../../assets/banner/image01.jpg"
+import sliderImg2 from "../../assets/banner/image02.jpg"
+import sliderImg3 from "../../assets/banner/image03.jpg"
+import sliderImg4 from "../../assets/banner/image04.jpg"
+import sliderImg5 from "../../assets/banner/image05.jpg"
 
 
 const Banner = () => {

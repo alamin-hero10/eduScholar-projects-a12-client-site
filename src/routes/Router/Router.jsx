@@ -13,6 +13,8 @@ import MyProfile from "../../pages/UserDashboard/MyProfile/MyProfile";
 import MyApplications from "../../pages/UserDashboard/MyApplications/MyApplications";
 import Payment from "../../pages/UserDashboard/Payment/Payment";
 import Contact from "../../pages/UserDashboard/Contact/Contact";
+import ContactUs from "../../pages/ContactUs/ContactUs";
+import AboutUs from "../../pages/AboutUs/AboutUs";
 
 const Router = createBrowserRouter([
     {
@@ -45,6 +47,14 @@ const Router = createBrowserRouter([
                 element: <PrivateRoute>
                     <ApplyForm></ApplyForm>
                 </PrivateRoute>
+            },
+            {
+                path: "/contactUs",
+                element: <ContactUs></ContactUs>
+            },
+            {
+                path: "/aboutUs",
+                element: <AboutUs></AboutUs>
             }
         ]
     },

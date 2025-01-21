@@ -1,9 +1,9 @@
 import "../Navbar/Navbar.css";
-import userIcon from "../../assets/user.png"
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
-import logo from "../../assets/eduLogo.png"
+import userIcon from "../../assets/logo/user.png"
+import logo from "../../assets/logo/eduLogo.png"
 
 const Navbar = () => {
 
@@ -71,7 +71,7 @@ const Navbar = () => {
                     }
                     <NavLink to="/adminDashboard" className="text-lg text-black font-base uppercase">Admin Dashboard</NavLink>
                     <NavLink to="/dashboard" className="text-lg text-black font-base uppercase">User Dashboard</NavLink>
-                    <NavLink to="/" className="text-lg text-black font-base uppercase">No-Data</NavLink>
+                    <NavLink to="/aboutUs" className="text-lg text-black font-base uppercase">About Us</NavLink>
                     <NavLink to="/contactUs" className="text-lg text-black font-base uppercase">Contact Us</NavLink>
                 </ul>
             </div>
