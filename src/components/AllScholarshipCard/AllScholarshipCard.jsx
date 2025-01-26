@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const AllScholarshipCard = ({ allCardData }) => {
 
     // ---Card-Data---
-    const { _id, UniversityName, UniversityImage, ScholarshipCategory, UniversityLocation, ApplicationDeadline, SubjectName, SubjectCategory, ApplicationFees } = allCardData || {};
+    const { _id, universityName, selectDegree, universityCity, applicationFees, stipend, subjectName, subjectCategory, universityCountry, serviceCharge, applicationDeadline, scholarshipName, scholarshipCategory, worldRank, tuitionFees, postDeadline, scholarshipDescription, photoURL, adminUser } = cardData || {};
 
     // --Return---
     return (
@@ -11,7 +11,7 @@ const AllScholarshipCard = ({ allCardData }) => {
             <div>
                 <img
                     className="w-[400px] h-64 object-cover"
-                    src={UniversityImage}
+                    src={photoURL}
                     alt="" />
             </div>
             {/* Description */}

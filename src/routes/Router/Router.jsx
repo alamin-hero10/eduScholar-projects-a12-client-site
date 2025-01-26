@@ -15,6 +15,7 @@ import Payment from "../../pages/UserDashboard/Payment/Payment";
 import Contact from "../../pages/UserDashboard/Contact/Contact";
 import ContactUs from "../../pages/ContactUs/ContactUs";
 import AboutUs from "../../pages/AboutUs/AboutUs";
+import SignUp from "../../pages/SignUp/SignUp";
 
 const Router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ const Router = createBrowserRouter([
             {
                 path: "/aboutUs",
                 element: <AboutUs></AboutUs>
+            },
+            {
+                path: "/signUp",
+                element: <SignUp></SignUp>
             }
         ]
     },

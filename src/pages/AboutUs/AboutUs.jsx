@@ -2,75 +2,80 @@ import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import { useQuery } from "@tanstack/react-query";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { imageUpload } from "../../api/utils";
+
 
 const AboutUs = () => {
     // ---useContext---
     const { user } = useContext(AuthContext);
+    console.log(user)
 
     // ---Hook-useAxiosPublic---
     const axiosPublic = useAxiosPublic();
 
     // Date Picker:
-    const [startDate, setStartDate] = useState(new Date());
+    const [postedDeadline, setPostedDeadline] = useState(new Date());
 
     // Date Picker:
-    const [applicationDeadline, setApplicationDeadline] = useState(new Date());
-
-    // ---useQuery---
-    const { data: scholarship = [] } = useQuery({
-        queryKey: ["scholarship"],
-        queryFn: async () => {
-            const res = await axiosPublic.get(`/scholarship/${id}`)
-            return res.data;
-        }
-    })
+    const [applyDeadline, setApplyDeadline] = useState(new Date());
 
     // ---Handle Apply Scholarship---
-    const handleApplyScholarship = (event) => {
+    const handleApplyScholarship = async (event) => {
         event.preventDefault();
-        // -----Form Data-----
+        // Form Data:
         const form = event.target;
         const universityName = form.universityName.value;
-        const subjectCategory = form.subjectCategory.value;
-        const scholarshipCategory = form.scholarshipCategory.value;
         const selectDegree = form.selectDegree.value;
-        const sscResult = form.sscResult.value;
-        const hscResult = form.hscResult.value;
-        const phoneNumber = form.phoneNumber.value;
-        const applicationAddress = form.applicationAddress.value;
-        const selectStudyGap = form.selectStudyGap.value;
-        const selectGender = form.selectGender.value;
-        const photo = form.yourPhoto.value;
-        const email = user?.email;
-        const userName = user?.displayName;
-        const currentDate = new Date().toDateString();
+        const universityCity = form.universityCity.value;
+        const applicationFees = form.applicationFees.value;
+        const stipend = form.stipend.value;
+        const subjectName = form.subjectName.value;
+        const subjectCategory = form.subjectCategory.value;
+        const universityCountry = form.universityCountry.value;
+        const serviceCharge = form.serviceCharge.value;
+        const applicationDeadline = applyDeadline;
+        const scholarshipName = form.scholarshipName.value;
+        const scholarshipCategory = form.scholarshipCategory.value;
+        const worldRank = form.worldRank.value;
+        const tuitionFees = form.tuitionFees.value;
+        const postDeadline = postedDeadline;
+        const scholarshipDescription = form.scholarshipDescription.value ;
+        const image = form.image.files[0];
+        const photoURL = await imageUpload(image);
 
-        const newApplyData = { universityName, subjectCategory, scholarshipCategory, selectDegree, sscResult, hscResult, phoneNumber, applicationAddress, selectStudyGap, selectGender, photo, email, userName, currentDate }
+        // ---Regular User---
+        const adminUser = {
+            email : user?.email,
+            userName : user?.displayName
+        }
+
+        const uploadData = { universityName, selectDegree, universityCity, applicationFees, stipend, subjectName, subjectCategory, universityCountry, serviceCharge, applicationDeadline, scholarshipName, scholarshipCategory, worldRank, tuitionFees, postDeadline, scholarshipDescription, photoURL, adminUser }
 
         // ---Axios Public---
-        axiosPublic.post("/applyScholarship", newApplyData)
-            .then(res => {
-                if (res.data.insertedId) {
-                    // --Swal--
-                    Swal.fire({
-                        title: `${userName}, Your Application has been Successfully!`,
-                        icon: "success",
-                        draggable: true
-                    });
-                }
-            })
+        axiosPublic.post("/allScholarshipData", uploadData)
+                .then(res => {
+                    if (res.data.insertedId) {
+                        // --Swal--
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Scholarship data upload is Successfully!",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                })
     }
 
     // ---Return---
     return (
         <div>
-            <div className="card bg-base-100 w-full max-w-7xl mx-auto shrink-0 shadow-2xl mt-5 mb-14">
+            <div className="card bg-base-100 w-full max-w-[1700px] mx-auto shrink-0 mt-5 mb-14">
                 <h2 className="text-2xl font-semibold text-center mt-5">Add Scholarship Data </h2>
                 <form onSubmit={handleApplyScholarship}>
-                    <div className="grid grid-cols-3">
+                    <div className="grid md:grid-cols-3">
                         {/* ---Form-02--- */}
                         <div className="hero">
                             <div className="card bg-base-100 w-full shrink-0">
@@ -87,12 +92,14 @@ const AboutUs = () => {
                                             className="input input-bordered rounded-none"
                                             required />
                                     </div>
-                                    {/* ---Applying Degree--- */}
+                                    {/* ---Degree--- */}
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text text-lg">Degree</span>
                                         </label>
-                                        <select name="selectDegree" className="select select-bordered w-full rounded-none">
+                                        <select
+                                            name="selectDegree"
+                                            className="select select-bordered w-full rounded-none">
                                             <option disabled selected>Select Degree</option>
                                             <option value="Diploma">Diploma</option>
                                             <option value="Bachelor">Bachelor</option>
@@ -123,19 +130,17 @@ const AboutUs = () => {
                                             className="input input-bordered rounded-none"
                                             required />
                                     </div>
-                                    {/* ---Study Gap--- */}
+                                    {/* ---Stipend--- */}
                                     <div className="form-control">
                                         <label className="label">
-                                            <span className="label-text text-lg">Study Gap</span>
+                                            <span className="label-text text-lg">Stipend (If have)</span>
                                         </label>
-                                        <select name="selectStudyGap" className="select select-bordered w-full rounded-none">
-                                            <option disabled selected>Select Study Gap</option>
-                                            <option value="3 Month">3 Month</option>
-                                            <option value="6 Month">6 Month</option>
-                                            <option value="1 Year">1 Year</option>
-                                            <option value="2 Year">2 Year</option>
-                                            <option value="3 Year">3 Year</option>
-                                        </select>
+                                        <input
+                                            name="stipend"
+                                            type="name"
+                                            placeholder="Stipend"
+                                            className="input input-bordered rounded-none"
+                                            required />
                                     </div>
                                 </div>
                             </div>
@@ -144,13 +149,13 @@ const AboutUs = () => {
                         <div className="hero">
                             <div className="card bg-base-100 w-full shrink-0">
                                 <div className="card-body">
-                                    {/* ---Scholarship Category--- */}
+                                    {/* ---Subject Name--- */}
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text text-lg">Subject Name</span>
                                         </label>
                                         <input
-                                            name="scholarshipCategory"
+                                            name="subjectName"
                                             type="name"
                                             placeholder="Subject Name"
                                             className="input input-bordered rounded-none"
@@ -161,7 +166,9 @@ const AboutUs = () => {
                                         <label className="label">
                                             <span className="label-text text-lg">Subject Category</span>
                                         </label>
-                                        <select name="selectDegree" className="select select-bordered w-full rounded-none">
+                                        <select
+                                            name="subjectCategory"
+                                            className="select select-bordered w-full rounded-none">
                                             <option disabled selected>Select Subject</option>
                                             <option value="Agriculture">Agriculture</option>
                                             <option value="Engineering">Engineering</option>
@@ -198,9 +205,9 @@ const AboutUs = () => {
                                             <span className="label-text text-lg">Application Deadline</span>
                                         </label>
                                         <DatePicker
-                                            className="border p-2 rounded-none py-[10px] w-[360px]"
-                                            selected={applicationDeadline}
-                                            onChange={(date) => setApplicationDeadline(date)} />
+                                            className="border p-2 rounded-none py-[10px] w-[500px]"
+                                            selected={applyDeadline}
+                                            onChange={(date) => setApplyDeadline(date)} />
                                     </div>
                                 </div>
                             </div>
@@ -215,7 +222,7 @@ const AboutUs = () => {
                                             <span className="label-text text-lg">Scholarship Name</span>
                                         </label>
                                         <input
-                                            name="scholarshipCategory"
+                                            name="scholarshipName"
                                             type="name"
                                             placeholder="Scholarship Name"
                                             className="input input-bordered rounded-none"
@@ -226,7 +233,9 @@ const AboutUs = () => {
                                         <label className="label">
                                             <span className="label-text text-lg">Scholarship Category</span>
                                         </label>
-                                        <select name="selectDegree" className="select select-bordered w-full rounded-none">
+                                        <select
+                                            name="scholarshipCategory"
+                                            className="select select-bordered w-full rounded-none">
                                             <option disabled selected>Select Scholarship</option>
                                             <option value="Full-fund">Full Fund</option>
                                             <option value="Partial">Partial</option>
@@ -263,41 +272,40 @@ const AboutUs = () => {
                                             <span className="label-text text-lg">Posted Deadline</span>
                                         </label>
                                         <DatePicker
-                                            className="border p-2 rounded-none py-[10px] w-[360px]"
-                                            selected={startDate}
-                                            onChange={(date) => setStartDate(date)} />
+                                            className="border p-2 rounded-none py-[10px] w-[500px]"
+                                            selected={postedDeadline}
+                                            onChange={(date) => setPostedDeadline(date)} />
                                     </div>
-                                    {/* <div className="form-control">
-                                        <label className="label">
-                                            <span className="label-text text-lg">Application Deadline</span>
-                                        </label>
-                                        <input
-                                            name="tuitionFees"
-                                            type="number"
-                                            placeholder="Tuition Fees"
-                                            className="input input-bordered rounded-none"
-                                            required />
-                                    </div> */}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {/* ---Your Photo Upload--- */}
-                    <div className="flex items-center">
-                        <div className="form-control max-w-96 mx-auto">
-                            <label className="label mx-auto">
-                                <span className="label-text text-lg">Your Photo Upload</span>
-                            </label>
-                            <input
-                                name="yourPhoto"
-                                type="photo"
-                                placeholder="Your Photo"
-                                className="input input-bordered"
-                                required />
+                    {/* ---Description and Photo Upload--- */}
+                    <div className="card-body grid md:grid-cols-2">
+                        <div className="">
+                            <textarea
+                                name="scholarshipDescription"
+                                placeholder="Scholarship Description"
+                                className="textarea textarea-bordered textarea-lg w-full max-w-3xl h-[115px] rounded-none"></textarea>
                         </div>
-                        {/* ---Add Visa Button--- */}
-                        <div className="form-control w-full max-w-52 mx-auto">
-                            <button className="bg-[#015CB5] py-3 px-7 text-xl font-semibold text-white rounded-lg hover:bg-[#4caf50]">Submit</button>
+                        {/* ---Image Upload and Button--- */}
+                        <div className="flex flex-col lg:flex-row items-center mt-10 md:mt-0">
+                            <div className="form-control max-w-96 mx-auto border border-dotted border-[#015CB5] p-3">
+                                <label className="label">
+                                    <span className="label-text text-lg">Image Upload</span>
+                                </label>
+                                <input
+                                    name="image"
+                                    type="file"
+                                    placeholder="Image"
+                                    accept="image/*"
+                                    // className="input input-bordered"
+                                />
+                            </div>
+                            {/* ---Add Visa Button--- */}
+                            <div className="form-control w-full max-w-52 mx-auto mt-16 md:mt-0">
+                                <button className="bg-[#015CB5] py-3 px-7 text-xl font-semibold text-white rounded-none hover:bg-[#4caf50]">Submit</button>
+                            </div>
                         </div>
                     </div>
                 </form>

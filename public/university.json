@@ -1,5 +1,241 @@
 [
   {
+    "id": 1,
+    "UniversityName": "Harvard University",
+    "UniversityLogo": "https://example.com/harvard-logo.png",
+    "ScholarshipCategory": "Full Fund",
+    "UniversityLocation": {
+      "Country": "USA",
+      "City": "Cambridge"
+    },
+    "ApplicationDeadline": "2025-03-01",
+    "SubjectName": "Computer Science",
+    "SubjectCategory": "Engineering",
+    "ScholarshipDescription": "Fully funded scholarship for Computer Science students at Harvard University.",
+    "Stipend": "$2500/month",
+    "PostDate": "2025-01-10",
+    "ServiceCharge": "$100",
+    "ApplicationFees": "$50",
+    "Rating": 4.9,
+    "ScholarshipName": "Harvard Presidential Scholarship",
+    "UniversityWorldRank": 1,
+    "TuitionFees": "$60,000/year",
+    "Degree": "Masters"
+  },
+  {
+    "id": 2,
+    "UniversityName": "University of Cambridge",
+    "UniversityLogo": "https://example.com/cambridge-logo.png",
+    "ScholarshipCategory": "Partial",
+    "UniversityLocation": {
+      "Country": "UK",
+      "City": "Cambridge"
+    },
+    "ApplicationDeadline": "2025-05-01",
+    "SubjectName": "Agricultural Sciences",
+    "SubjectCategory": "Agriculture",
+    "ScholarshipDescription": "Partial funding for international students in Agricultural Sciences.",
+    "Stipend": "$1500/month",
+    "PostDate": "2025-01-15",
+    "ServiceCharge": "$120",
+    "ApplicationFees": "$40",
+    "Rating": 4.8,
+    "ScholarshipName": "Cambridge Excellence Scholarship",
+    "UniversityWorldRank": 2,
+    "TuitionFees": "$40,000/year",
+    "Degree": "Bachelor"
+  },
+  {
+    "id": 3,
+    "UniversityName": "Stanford University",
+    "UniversityLogo": "https://example.com/stanford-logo.png",
+    "ScholarshipCategory": "Full Fund",
+    "UniversityLocation": {
+      "Country": "USA",
+      "City": "Stanford"
+    },
+    "ApplicationDeadline": "2025-06-15",
+    "SubjectName": "Medicine",
+    "SubjectCategory": "Doctor",
+    "ScholarshipDescription": "Stanford offers full funding for Medicine students.",
+    "Stipend": "$3000/month",
+    "PostDate": "2025-01-20",
+    "ServiceCharge": "$150",
+    "ApplicationFees": "$60",
+    "Rating": 4.9,
+    "ScholarshipName": "Stanford Medical Scholars",
+    "UniversityWorldRank": 3,
+    "TuitionFees": "$65,000/year",
+    "Degree": "Masters"
+  },
+  {
+    "id": 4,
+    "UniversityName": "University of Tokyo",
+    "UniversityLogo": "https://example.com/tokyo-logo.png",
+    "ScholarshipCategory": "Self-Fund",
+    "UniversityLocation": {
+      "Country": "Japan",
+      "City": "Tokyo"
+    },
+    "ApplicationDeadline": "2025-04-10",
+    "SubjectName": "Engineering",
+    "SubjectCategory": "Engineering",
+    "ScholarshipDescription": "Self-funded program for international engineering students.",
+    "Stipend": null,
+    "PostDate": "2025-01-05",
+    "ServiceCharge": "$50",
+    "ApplicationFees": "$70",
+    "Rating": 4.7,
+    "ScholarshipName": "Tokyo International Program",
+    "UniversityWorldRank": 23,
+    "TuitionFees": "$20,000/year",
+    "Degree": "Diploma"
+  },
+  {
+    "id": 5,
+    "UniversityName": "University of Toronto",
+    "UniversityLogo": "https://example.com/toronto-logo.png",
+    "ScholarshipCategory": "Full Fund",
+    "UniversityLocation": {
+      "Country": "Canada",
+      "City": "Toronto"
+    },
+    "ApplicationDeadline": "2025-07-30",
+    "SubjectName": "Biotechnology",
+    "SubjectCategory": "Agriculture",
+    "ScholarshipDescription": "Fully funded scholarship for Biotechnology students.",
+    "Stipend": "$2000/month",
+    "PostDate": "2025-01-18",
+    "ServiceCharge": "$110",
+    "ApplicationFees": "$55",
+    "Rating": 4.6,
+    "ScholarshipName": "Toronto Scholars Program",
+    "UniversityWorldRank": 18,
+    "TuitionFees": "$50,000/year",
+    "Degree": "Masters"
+  },
+  {
+    "id": 6,
+    "UniversityName": "ETH Zurich",
+    "UniversityLogo": "https://example.com/eth-logo.png",
+    "ScholarshipCategory": "Partial",
+    "UniversityLocation": {
+      "Country": "Switzerland",
+      "City": "Zurich"
+    },
+    "ApplicationDeadline": "2025-08-15",
+    "SubjectName": "Mechanical Engineering",
+    "SubjectCategory": "Engineering",
+    "ScholarshipDescription": "Partial funding for Mechanical Engineering students.",
+    "Stipend": "$1000/month",
+    "PostDate": "2025-01-22",
+    "ServiceCharge": "$140",
+    "ApplicationFees": "$50",
+    "Rating": 4.8,
+    "ScholarshipName": "ETH Excellence Scholarship",
+    "UniversityWorldRank": 6,
+    "TuitionFees": "$25,000/year",
+    "Degree": "Bachelor"
+  },
+  {
+    "id": 7,
+    "UniversityName": "National University of Singapore",
+    "UniversityLogo": "https://example.com/nus-logo.png",
+    "ScholarshipCategory": "Full Fund",
+    "UniversityLocation": {
+      "Country": "Singapore",
+      "City": "Singapore"
+    },
+    "ApplicationDeadline": "2025-03-20",
+    "SubjectName": "Data Science",
+    "SubjectCategory": "Engineering",
+    "ScholarshipDescription": "Fully funded Data Science program for international students.",
+    "Stipend": "$1800/month",
+    "PostDate": "2025-01-08",
+    "ServiceCharge": "$100",
+    "ApplicationFees": "$70",
+    "Rating": 4.9,
+    "ScholarshipName": "NUS Global Scholarship",
+    "UniversityWorldRank": 11,
+    "TuitionFees": "$30,000/year",
+    "Degree": "Masters"
+  },
+  {
+    "id": 8,
+    "UniversityName": "University of Melbourne",
+    "UniversityLogo": "https://example.com/melbourne-logo.png",
+    "ScholarshipCategory": "Self-Fund",
+    "UniversityLocation": {
+      "Country": "Australia",
+      "City": "Melbourne"
+    },
+    "ApplicationDeadline": "2025-09-01",
+    "SubjectName": "Environmental Science",
+    "SubjectCategory": "Agriculture",
+    "ScholarshipDescription": "Self-funded program for Environmental Science students.",
+    "Stipend": null,
+    "PostDate": "2025-01-12",
+    "ServiceCharge": "$90",
+    "ApplicationFees": "$60",
+    "Rating": 4.7,
+    "ScholarshipName": "Melbourne Science Scholars",
+    "UniversityWorldRank": 34,
+    "TuitionFees": "$45,000/year",
+    "Degree": "Bachelor"
+  },
+  {
+    "id": 9,
+    "UniversityName": "Oxford University",
+    "UniversityLogo": "https://example.com/oxford-logo.png",
+    "ScholarshipCategory": "Full Fund",
+    "UniversityLocation": {
+      "Country": "UK",
+      "City": "Oxford"
+    },
+    "ApplicationDeadline": "2025-02-28",
+    "SubjectName": "Law",
+    "SubjectCategory": "Doctor",
+    "ScholarshipDescription": "Oxford offers full funding for international Law students.",
+    "Stipend": "$2800/month",
+    "PostDate": "2025-01-03",
+    "ServiceCharge": "$130",
+    "ApplicationFees": "$50",
+    "Rating": 4.9,
+    "ScholarshipName": "Rhodes Scholarship",
+    "UniversityWorldRank": 4,
+    "TuitionFees": "$70,000/year",
+    "Degree": "Masters"
+  },
+  {
+    "id": 10,
+    "UniversityName": "Massachusetts Institute of Technology (MIT)",
+    "UniversityLogo": "https://example.com/mit-logo.png",
+    "ScholarshipCategory": "Partial",
+    "UniversityLocation": {
+      "Country": "USA",
+      "City": "Cambridge"
+    },
+    "ApplicationDeadline": "2025-04-15",
+    "SubjectName": "Artificial Intelligence",
+    "SubjectCategory": "Engineering",
+    "ScholarshipDescription": "Partial funding for AI researchers.",
+    "Stipend": "$2200/month",
+    "PostDate": "2025-01-25",
+    "ServiceCharge": "$150",
+    "ApplicationFees": "$60",
+    "Rating": 4.9,
+    "ScholarshipName": "MIT AI Fellowship",
+    "UniversityWorldRank": 5,
+    "TuitionFees": "$75,000/year",
+    "Degree": "Masters"
+  }
+]
+
+
+
+
+[
+  {
     "UniversityName": "Harvard University",
     "UniversityImage": "https://i.ibb.co.com/VC9f4WL/harvard-university.jpg",
     "ScholarshipCategory": "Undergraduate",

@@ -1,14 +1,13 @@
-import { useForm } from "react-hook-form";
-import { NavLink, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
-import { useContext } from "react";
-import Swal from "sweetalert2";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
-import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { ImSpinner9 } from "react-icons/im";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
+import { useContext, useState } from "react";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
-
-const Register = () => {
+const SignUp = () => {
 
     // ----- UseContext -----
     const { Register, manageUpdateProfile, loading } = useContext(AuthContext);
@@ -16,41 +15,57 @@ const Register = () => {
     // ---Hook-useAxiosPublic---
     const axiosPublic = useAxiosPublic();
 
-    // ---useNavigate---
+    // ---useState---
+    const [error, setError] = useState();
     const navigate = useNavigate();
 
-    // ---React-Hook-Form---
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm();
+    // ----- Handle Register Submit -----
+    const handleRegisterSubmit = (event) => {
+        event.preventDefault();
+        toast("Your Log in Successfully")
 
-    // ---ImgBB API Key:
-    // const imgbbApiKey = import.meta.env.VITE_IMAGEBB_API_KEY;
+    // ---Get Form Data---
+    const form = event.target
+    const name = form.name.value
+    const photo = form.photo.value
+    const email = form.email.value
+    const password = form.password.value
 
-    // ---Form onSubmit---
-    const onSubmit = (data) => {
-        Register(
-            data.email,
-            data.password
-        )
+    // ---Password Validation---
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+        toast("Your Log in Password not Valid")
+        setError("Password must be contains at least one Uppercase, one Lowercase, and length has to be at least 6 characters")
+        return;
+    }
+    setError("")
+
+    // ---Handle Register---
+        Register(email, password)
             .then(result => {
                 console.log(result)
-                // ---manage Update Profile---
-                manageUpdateProfile(data.name, data.photoURL)
+                if (result) {
+                    Swal.fire({
+                        title: 'success!',
+                        text: 'Your name and eamil Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+                manageUpdateProfile({ displayName: name, photoURL: photo })
                     .then(() => {
                         // Create user entry in the database
                         const userInfo = {
-                            name: data.name,
-                            email: data.email,
-                            photo: data.photoURL,
+                            name: name,
+                            email: email,
+                            photoURL: photo,
                             role: "regularUser"
                         }
                         axiosPublic.post("/users", userInfo)
                             .then(res => {
                                 console.log(res.data)
                                 if (res.data.insertedId) {
+                                    // --Swal--
                                     Swal.fire({
                                         title: "Register Successfully!",
                                         icon: "success",
@@ -67,16 +82,15 @@ const Register = () => {
             .catch(error => {
                 console.log(error)
             });
-    };
-
+    }
 
     // ---Return---
     return (
         <div>
             <div className="hero min-h-screen">
                 <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl">
-                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-                        <h2 className="text-2xl font-semibold text-center">Register your account</h2>
+                        <form onSubmit={handleRegisterSubmit} className="card-body">
+                        <h2 className="text-2xl font-semibold text-center">Sign Up your account</h2>
                         {/* ---Your Name--- */}
                         <div className="form-control">
                             <label className="label">
@@ -85,10 +99,8 @@ const Register = () => {
                             <input
                                 name="name"
                                 type="name"
-                                {...register("name", { required: true })}
                                 placeholder="Name"
                                 className="input input-bordered rounded-none" />
-                            {errors.name && <span className="text-red-500">This field is required</span>}
                         </div>
                         {/* ---Photo--- */}
                         <div className="form-control">
@@ -98,11 +110,9 @@ const Register = () => {
                             <input
                                 name="photo"
                                 type="photo"
-                                {...register("photoURL", { required: true })}
                                 placeholder="Photo URL"
                                 className="input input-bordered rounded-none"
                             />
-                            {errors.photo && <span className="text-red-500">This field is required</span>}
                         </div>
                         {/* ---Your Email--- */}
                         <div className="form-control">
@@ -112,10 +122,8 @@ const Register = () => {
                             <input
                                 name="email"
                                 type="email"
-                                {...register("email", { required: true })}
                                 placeholder="Email"
                                 className="input input-bordered rounded-none" />
-                            {errors.email && <span className="text-red-500">This field is required</span>}
                         </div>
                         {/* ---Password--- */}
                         <div className="form-control">
@@ -125,28 +133,9 @@ const Register = () => {
                             <input
                                 name="password"
                                 type="text"
-                                {...register("password", {
-                                    required: true,
-                                    minLength: 6,
-                                    maxLength: 15,
-                                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
-                                })}
                                 placeholder="Password"
                                 className="input input-bordered rounded-none"
                                 required />
-                            {/* Error Message */}
-                            {errors.password?.type === "required" && (
-                                <p className="text-red-500">Password is required</p>
-                            )}
-                            {errors.password?.type === "minLength" && (
-                                <p className="text-red-500">Password must be 6 characters</p>
-                            )}
-                            {errors.password?.type === "maxLength" && (
-                                <p className="text-red-500">Password must be less then 15 characters</p>
-                            )}
-                            {errors.password?.type === "pattern" && (
-                                <p className="text-red-500">Password mut have one uppercase, one lowercase, one number and one special characters</p>
-                            )}
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
@@ -166,7 +155,7 @@ const Register = () => {
                                 }
 
                             </button>
-                            <p className="text-center my-3">Already have an Account. Please <NavLink to="/login" className="text-green-600">Login</NavLink> </p>
+                            <p className="text-center my-3">Already have an Account. Please <Link to="/login" className="text-green-600">Login</Link> </p>
                         </div>
                         {/* ---Google LogIn--- */}
                         <div className="text-center">
@@ -183,4 +172,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default SignUp;

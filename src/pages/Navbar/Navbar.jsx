@@ -73,6 +73,7 @@ const Navbar = () => {
                     <NavLink to="/dashboard" className="text-lg text-black font-base uppercase">User Dashboard</NavLink>
                     <NavLink to="/aboutUs" className="text-lg text-black font-base uppercase">About Us</NavLink>
                     <NavLink to="/contactUs" className="text-lg text-black font-base uppercase">Contact Us</NavLink>
+                    {/* <NavLink to="/signUp" className="text-lg text-black font-base uppercase">Sign-UP</NavLink> */}
                 </ul>
             </div>
             {/* ---Navbar--- */}

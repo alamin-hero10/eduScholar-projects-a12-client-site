@@ -6,6 +6,7 @@ import auth from "../../firebase/firebase.config";
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
+
     // ---Google Auth Provider---
     const googleProvider = new GoogleAuthProvider();
 

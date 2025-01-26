@@ -11,10 +11,10 @@ const AllScholarship = () => {
     const { data: allScholarship = [] } = useQuery({
         queryKey: ["allScholarship"],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/scholarships`)
+            const res = await axiosPublic.get(`/scholarship`)
             return res.data;
         }
-    });
+    })
 
     // ---Return---
     return (

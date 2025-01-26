@@ -25,8 +25,9 @@ const ScholarshipDetails = () => {
     })
 
     // ---Scholarship Data---
-    const { _id, UniversityName, UniversityImage, ScholarshipCategory, UniversityLocation, ApplicationDeadline, SubjectName, SubjectCategory, ApplicationFees, Rating, PostDate, Stipend, ScholarshipDescription, ServiceCharge } = scholarship || {};
+    const { _id, universityName, selectDegree, universityCity, applicationFees, stipend, subjectName, subjectCategory, universityCountry, serviceCharge, applicationDeadline, scholarshipName, scholarshipCategory, worldRank, tuitionFees, postDeadline, scholarshipDescription, photoURL, adminUser } = scholarship || {};
 
+    // ---useState---
     let [isOpen, setIsOpen] = useState(false)
 
     const closeModal = () => {
@@ -42,12 +43,12 @@ const ScholarshipDetails = () => {
                 <div>
                     <img
                         className="w-[640px] border border-solid border-blue-200 p-2"
-                        src={UniversityImage}
+                        src={photoURL}
                         alt="" />
                 </div>
                 {/* ---Description--- */}
                 <div className="mt-10">
-                    <p>{ScholarshipDescription}</p>
+                    <p>{scholarshipDescription}</p>
                 </div>
                 {/* ---Rating and Review--- */}
                 <div className="mt-10">
@@ -157,7 +158,7 @@ const ScholarshipDetails = () => {
             </div>
             {/* ---Details--- */}
             <div className="mt-7 md:mt-0 border border-solid border-blue-200 px-10 py-7 w-[640px]">
-                <span className="text-xl font-semibold border-y border-solid border-green-500 p-1">{UniversityName}</span>
+                <span className="text-xl font-semibold border-y border-solid border-green-500 p-1">{universityName}</span>
                 {/* fee */}
                 <div className="flex items-center justify-between gap-3 mt-5">
                     <div className="flex items-center gap-3">
@@ -167,7 +168,7 @@ const ScholarshipDetails = () => {
                         <p className="text-lg">Fees:</p>
                     </div>
                     <div className="">
-                        <p className="text-2xl font-bold">{SubjectName}</p>
+                        <p className="text-2xl font-bold">{subjectName}</p>
                     </div>
                 </div>
                 {/* Divider */}
@@ -181,7 +182,7 @@ const ScholarshipDetails = () => {
                         <p className="text-lg">Fees:</p>
                     </div>
                     <div className="">
-                        <p className="text-2xl font-bold">{SubjectCategory}</p>
+                        <p className="text-2xl font-bold">{subjectCategory}</p>
                     </div>
                 </div>
                 {/* Divider */}
@@ -195,7 +196,7 @@ const ScholarshipDetails = () => {
                         <p className="text-lg">Fees:</p>
                     </div>
                     <div className="">
-                        <p className="text-2xl font-bold">{ScholarshipCategory}</p>
+                        <p className="text-2xl font-bold">{scholarshipCategory}</p>
                     </div>
                 </div>
                 {/* Divider */}
@@ -224,7 +225,7 @@ const ScholarshipDetails = () => {
                         <p className="text-lg">Fees:</p>
                     </div>
                     <div className="">
-                        <p className="text-2xl font-bold">{PostDate}</p>
+                        <p className="text-2xl font-bold">{postDeadline}</p>
                     </div>
                 </div>
                 {/* Divider */}
@@ -238,7 +239,7 @@ const ScholarshipDetails = () => {
                         <p className="text-lg">Fees:</p>
                     </div>
                     <div className="">
-                        <p className="text-2xl font-bold">${Stipend}.00</p>
+                        <p className="text-2xl font-bold">${stipend}.00</p>
                     </div>
                 </div>
                 {/* Divider */}
@@ -252,7 +253,7 @@ const ScholarshipDetails = () => {
                         <p className="text-lg">Fees:</p>
                     </div>
                     <div className="">
-                        <p className="text-2xl font-bold">${ServiceCharge}.00</p>
+                        <p className="text-2xl font-bold">${serviceCharge}.00</p>
                     </div>
                 </div>
                 {/* Divider */}
@@ -266,7 +267,7 @@ const ScholarshipDetails = () => {
                         <p className="text-lg">Fees:</p>
                     </div>
                     <div className="">
-                        <p className="text-2xl font-bold">${ApplicationFees}.00</p>
+                        <p className="text-2xl font-bold">${applicationFees}.00</p>
                     </div>
                 </div>
                 {/* Divider */}
@@ -280,7 +281,7 @@ const ScholarshipDetails = () => {
                         <p className="text-lg">Fees:</p>
                     </div>
                     <div className="">
-                        <p className="text-2xl font-bold">{ApplicationDeadline}</p>
+                        <p className="text-2xl font-bold">{applicationDeadline}</p>
                     </div>
                 </div>
                 {/* Button */}
@@ -288,15 +289,17 @@ const ScholarshipDetails = () => {
                     <button className="btn btn-primary mt-14">Apply Scholarship</button>
                 </Link>
                 {/* Button */}
-                {/* <Link to={`/userDashboard/payment`}>
+                <Link to={`/dashboard/payment`}>
                     <button
                     className="btn btn-primary mt-14">Purchase</button>
-                </Link> */}
-                <button
+                </Link>
+                {/* <button
                     onClick={() => setIsOpen(true)}
-                    className="btn btn-primary mt-14">Purchase</button>
+                    className="btn btn-primary mt-14">
+                    Purchase
+                </button> */}
             </div>
-            <PurchaseModal closeModal={closeModal} isOpen={isOpen}></PurchaseModal>
+            {/* <PurchaseModal closeModal={closeModal} isOpen={isOpen}></PurchaseModal> */}
         </div>
     );
 };

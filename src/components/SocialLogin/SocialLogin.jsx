@@ -30,17 +30,17 @@ const SocialLogin = () => {
                     name: result.user?.displayName,
                     email: result.user?.email,
                     photo: result.user?.photoURL,
+                    role: "regularUser",
                     signInTime: result.user?.metadata.lastSignInTime
-                    // role: "regularUser"
                 }
-                axiosPublic.post("/users", userGoogleInfo)
+                axiosPublic.post(`/users`, userGoogleInfo)
                     .then(res => {
                         if (res.data.insertedId) {
-                            // --Swal--
                             Swal.fire({
                                 title: "Google Log in Successfully!",
                                 icon: "success",
-                                draggable: true
+                                draggable: true,
+                                timer: 1500
                             });
                             console.log(res.data)
                             navigate("/")

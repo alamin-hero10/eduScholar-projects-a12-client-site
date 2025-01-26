@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // ---axiosPublic---
 const axiosPublic = axios.create({
-    baseURL: "http://localhost:5100"
+    baseURL: "https://edu-scholar-projects-a12-server-site.vercel.app"
 })
 
 // ---useAxiosPublic---
