@@ -1,13 +1,12 @@
 import { useContext, useState } from "react";
-import Swal from "sweetalert2";
+import DatePicker from "react-datepicker";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import { imageUpload } from "../../api/utils";
+import Swal from "sweetalert2";
 
+const ModeratorDashboard = () => {
 
-const AboutUs = () => {
     // ---useContext---
     const { user } = useContext(AuthContext);
     console.log(user)
@@ -41,35 +40,34 @@ const AboutUs = () => {
         const worldRank = form.worldRank.value;
         const tuitionFees = form.tuitionFees.value;
         const postDeadline = postedDeadline;
-        const scholarshipDescription = form.scholarshipDescription.value ;
+        const scholarshipDescription = form.scholarshipDescription.value;
         const image = form.image.files[0];
         const photoURL = await imageUpload(image);
 
         // ---Regular User---
         const adminUser = {
-            email : user?.email,
-            userName : user?.displayName
+            email: user?.email,
+            userName: user?.displayName
         }
 
         const uploadData = { universityName, selectDegree, universityCity, applicationFees, stipend, subjectName, subjectCategory, universityCountry, serviceCharge, applicationDeadline, scholarshipName, scholarshipCategory, worldRank, tuitionFees, postDeadline, scholarshipDescription, photoURL, adminUser }
 
         // ---Axios Public---
         axiosPublic.post("/allScholarshipData", uploadData)
-                .then(res => {
-                    if (res.data.insertedId) {
-                        // --Swal--
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: "Scholarship data upload is Successfully!",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                })
+            .then(res => {
+                if (res.data.insertedId) {
+                    // --Swal--
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Scholarship data upload is Successfully!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
     }
 
-    // ---Return---
     return (
         <div>
             <div className="card bg-base-100 w-full max-w-[1700px] mx-auto shrink-0 mt-5 mb-14">
@@ -314,4 +312,4 @@ const AboutUs = () => {
     );
 };
 
-export default AboutUs;
+export default ModeratorDashboard;

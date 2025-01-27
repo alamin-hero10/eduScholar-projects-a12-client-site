@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const AllScholarshipCard = ({ allCardData }) => {
 
     // ---Card-Data---
-    const { _id, universityName, selectDegree, universityCity, applicationFees, stipend, subjectName, subjectCategory, universityCountry, serviceCharge, applicationDeadline, scholarshipName, scholarshipCategory, worldRank, tuitionFees, postDeadline, scholarshipDescription, photoURL, adminUser } = cardData || {};
+    const { _id, universityName, selectDegree, universityCity, applicationFees, stipend, subjectName, subjectCategory, universityCountry, serviceCharge, applicationDeadline, scholarshipName, scholarshipCategory, worldRank, tuitionFees, postDeadline, scholarshipDescription, photoURL, adminUser } = allCardData || {};
 
     // --Return---
     return (
@@ -17,22 +17,22 @@ const AllScholarshipCard = ({ allCardData }) => {
             {/* Description */}
             <div className="px-5">
                 <div>
-                    <h3>{UniversityName}</h3>
+                    <h3>{universityName}</h3>
                 </div>
                 <div>
-                    <p>{ScholarshipCategory}</p>
+                    <p>{scholarshipCategory}</p>
                     <div className="flex items-center gap-2">
-                        <p>{UniversityLocation.City},</p>
-                        <p>{UniversityLocation.Country}</p>
+                        <p>{universityCity}</p>
+                        <p>{universityCountry}</p>
                     </div>
                 </div>
                 <div>
-                    <p>{SubjectCategory}</p>
-                    <p>{SubjectName}</p>
+                    <p>{subjectCategory}</p>
+                    <p>{subjectName}</p>
                 </div>
                 <div>
-                    <p>$ {ApplicationFees}</p>
-                    <p>{ApplicationDeadline}</p>
+                    <p>$ {applicationFees}</p>
+                    <p>{applicationDeadline}</p>
                 </div>
                 {/* Button */}
                 <Link to={`/scholarshipDetails/${_id}`}>

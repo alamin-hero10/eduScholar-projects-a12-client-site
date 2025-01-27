@@ -16,6 +16,7 @@ import Contact from "../../pages/UserDashboard/Contact/Contact";
 import ContactUs from "../../pages/ContactUs/ContactUs";
 import AboutUs from "../../pages/AboutUs/AboutUs";
 import SignUp from "../../pages/SignUp/SignUp";
+import ModeratorDashboard from "../../pages/ModeratorDashboard/ModeratorDashboard";
 
 const Router = createBrowserRouter([
     {
@@ -54,8 +55,8 @@ const Router = createBrowserRouter([
                 element: <ContactUs></ContactUs>
             },
             {
-                path: "/aboutUs",
-                element: <AboutUs></AboutUs>
+                path: "/moderator",
+                element: <ModeratorDashboard></ModeratorDashboard>
             },
             {
                 path: "/signUp",

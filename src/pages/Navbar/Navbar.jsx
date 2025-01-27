@@ -46,6 +46,7 @@ const Navbar = () => {
                         <NavLink to="/" className="text-base font-medium text-gray-700 uppercase">Home</NavLink>
                         <NavLink to="/allScholarship" className="text-base font-medium text-gray-700 uppercase">All Scholarship</NavLink>
                         <NavLink to="/adminDashboard" className="text-lg font-medium text-gray-700 uppercase">Admin Dashboard</NavLink>
+                        <NavLink to="/moderator" className="text-lg text-black font-base uppercase">Moderator Dashboard</NavLink>
                         <NavLink to="/dashboard" className="text-base font-medium text-gray-700 uppercase">User Dashboard</NavLink>
                         <NavLink to="/contactUs" className="text-base font-medium text-gray-700 uppercase">Contact Us</NavLink>
                     </ul>
@@ -70,10 +71,9 @@ const Navbar = () => {
                         
                     }
                     <NavLink to="/adminDashboard" className="text-lg text-black font-base uppercase">Admin Dashboard</NavLink>
+                    <NavLink to="/moderator" className="text-lg text-black font-base uppercase">Moderator Dashboard</NavLink>
                     <NavLink to="/dashboard" className="text-lg text-black font-base uppercase">User Dashboard</NavLink>
-                    <NavLink to="/aboutUs" className="text-lg text-black font-base uppercase">About Us</NavLink>
                     <NavLink to="/contactUs" className="text-lg text-black font-base uppercase">Contact Us</NavLink>
-                    {/* <NavLink to="/signUp" className="text-lg text-black font-base uppercase">Sign-UP</NavLink> */}
                 </ul>
             </div>
             {/* ---Navbar--- */}
