@@ -14,7 +14,6 @@ import MyApplications from "../../pages/UserDashboard/MyApplications/MyApplicati
 import Payment from "../../pages/UserDashboard/Payment/Payment";
 import Contact from "../../pages/UserDashboard/Contact/Contact";
 import ContactUs from "../../pages/ContactUs/ContactUs";
-import AboutUs from "../../pages/AboutUs/AboutUs";
 import SignUp from "../../pages/SignUp/SignUp";
 import ModeratorDashboard from "../../pages/ModeratorDashboard/ModeratorDashboard";
 
@@ -42,7 +41,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/scholarshipDetails/:id",
-                element: <ScholarshipDetails></ScholarshipDetails>
+                element: <PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>
             },
             {
                 path: "/applyForm/:id",
@@ -56,7 +55,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/moderator",
-                element: <ModeratorDashboard></ModeratorDashboard>
+                element: <PrivateRoute> <ModeratorDashboard></ModeratorDashboard></PrivateRoute >
             },
             {
                 path: "/signUp",
@@ -72,12 +71,12 @@ const Router = createBrowserRouter([
         children: [
             // ---Admin User Routes---
             {
-                
+
             },
             // ---Normal User Routes---
             {
                 index: "true",
-                element: <MyProfile></MyProfile>
+                element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute >
             },
             {
                 path: "myApplication",
