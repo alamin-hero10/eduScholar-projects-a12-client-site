@@ -1,5 +1,7 @@
 {
   "projects": {
     "default": "eduscholarship-projects-a12"
-  }
+  },
+  "targets": {},
+  "etags": {}
 }
