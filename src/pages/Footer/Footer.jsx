@@ -39,21 +39,21 @@ const Footer = () => {
                             <MdKeyboardDoubleArrowRight className="size-5" />
                             <span>Home</span>
                         </Link>
-                        <Link to="/rooms" className="flex items-center text-base text-gray-300">
+                        <Link to="/allScholarship" className="flex items-center text-base text-gray-300">
                             <MdKeyboardDoubleArrowRight className="size-5" />
-                            <span>Rooms</span>
+                            <span>All Scholarship</span>
                         </Link>
-                        <Link to="/myBooking" className="flex items-center text-base text-gray-300">
+                        <Link to="/adminDashboard" className="flex items-center text-base text-gray-300">
                             <MdKeyboardDoubleArrowRight className="size-5" />
-                            <span>My Booking</span>
+                            <span>Admin Dashboard</span>
                         </Link>
-                        <Link to="/aboutUs" className="flex items-center text-base text-gray-300">
+                        <Link to="/moderator" className="flex items-center text-base text-gray-300">
                             <MdKeyboardDoubleArrowRight className="size-5" />
-                            <span>About Us</span>
+                            <span>Moderator Dashboard</span>
                         </Link>
                         <Link to="/contactUs" className="flex items-center text-base text-gray-300">
                             <MdKeyboardDoubleArrowRight className="size-5" />
-                            <span>Contact Us</span>
+                            <span>User Dashboard</span>
                         </Link>
                     </div>
                 </div>
