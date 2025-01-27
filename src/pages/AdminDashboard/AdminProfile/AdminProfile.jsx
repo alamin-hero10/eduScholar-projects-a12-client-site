@@ -2,7 +2,7 @@
 const AdminProfile = () => {
     return (
         <div>
-            Al-Amin Hero
+            Admin Profile
         </div>
     );
 };
