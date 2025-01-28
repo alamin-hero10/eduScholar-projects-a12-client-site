@@ -3,7 +3,7 @@ import { GoArrowUpRight } from "react-icons/go";
 
 const TutionFees = () => {
     return (
-        <div className="grid grid-cols-3 items-center justify-center py-10">
+        <div className="grid md:grid-cols-3 items-center justify-center gap-5 py-10">
             {/* Section-01 */}
             <div className="mx-auto">
                 <h1 className="text-5xl font-semibold">Tution Fees At <br /> University</h1>

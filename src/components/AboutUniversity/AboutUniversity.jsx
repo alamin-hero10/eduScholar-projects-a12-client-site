@@ -7,10 +7,10 @@ import imageCard2 from "../../assets/card/scholarship2.jpg"
 
 const AboutUniversity = () => {
     return (
-        <div className="grid grid-cols-2 py-32">
+        <div className="grid md:grid-cols-2 py-32">
             {/* Image */}
             <div className="relative">
-                <div className="flex items-center gap-7">
+                <div className="md:flex items-center  gap-7">
                     <img className="w-[300px] h-[475px] mt-14" src={imageCard1} alt="" />
                     <img className="w-[300px] h-[475px]" src={imageCard2} alt="" />
                 </div>
@@ -29,7 +29,7 @@ const AboutUniversity = () => {
                     <p className="text-slate-500 my-7">At Unipix University, we believe in the transformative power of education and the <br /> boundless potential that resides within each individual.</p>
                     <p className="text-slate-500">Our mission is to foster intellectual curiosity, empower individuals to realize their <br /> fullest potential, and contribute meaningfully to the betterment of society. <br /> commitment to academic excellence, diversity, and community engagement.</p>
                 </div>
-                <div className="flex items-center gap-7 mt-10">
+                <div className="md:flex items-center gap-7 mt-10">
                     {/* card-01 */}
                     <div className="flex items-center gap-5 border border-green-500 w-[300px] h-20">
                         <img className="w-16" src={imgLogo1} alt="" />
