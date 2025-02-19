@@ -62,18 +62,15 @@ const Navbar = () => {
                     </div>
                 </Link>
             </div>
-            {/* NavLink */}
+            {/* --NavLink-- */}
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-10">
                     <NavLink to="/" className="text-lg text-black font-base uppercase">Home</NavLink>
                     <NavLink to="/allScholarship" className="text-lg text-black font-base uppercase">All Scholarship</NavLink>
-                    {
-                        
-                    }
                     <NavLink to="/adminDashboard" className="text-lg text-black font-base uppercase">Admin Dashboard</NavLink>
                     <NavLink to="/moderator" className="text-lg text-black font-base uppercase">Moderator Dashboard</NavLink>
                     <NavLink to="/dashboard" className="text-lg text-black font-base uppercase">User Dashboard</NavLink>
-                    <NavLink to="/contactUs" className="text-lg text-black font-base uppercase">Contact Us</NavLink>
+                    {/* <NavLink to="/contactUs" className="text-lg text-black font-base uppercase">Contact Us</NavLink> */}
                 </ul>
             </div>
             {/* ---Navbar--- */}

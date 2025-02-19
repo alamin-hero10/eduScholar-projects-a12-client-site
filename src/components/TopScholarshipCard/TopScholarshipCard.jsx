@@ -8,15 +8,15 @@ const TopScholarshipCard = ({ cardData }) => {
 
     // ---Return---
     return (
-        <div className="drop-shadow-2xl bg-white rounded-xl w-[400px] h-[500px]">
+        <div className="drop-shadow-2xl bg-white rounded-xl mx-w-[400px] h-[500px]">
             <div>
                 <img
-                    className="w-[400px] h-64 object-cover"
+                    className="mx-w-[400px] h-64 object-cover"
                     src={photoURL}
                     alt="" />
             </div>
             {/* Description */}
-            <div className="px-5">
+            <div className="p-4">
                 <div>
                     <h3>{universityName}</h3>
                 </div>

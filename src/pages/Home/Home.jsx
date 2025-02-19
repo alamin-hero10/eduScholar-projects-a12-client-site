@@ -12,7 +12,7 @@ const Home = () => {
                 <title>Home | Education Scholarship</title>
             </Helmet>
             {/* ---Banner--- */}
-            <div>
+            <div className="">
                 <Banner></Banner>
             </div>
             {/* ---AboutUniversity--- */}
@@ -21,7 +21,7 @@ const Home = () => {
             </div>
             {/* ---Top-Scholarship--- */}
             <div className="bg-slate-100">
-                <div className="w-11/12 mx-auto">
+                <div className="w-10/12 mx-auto">
                     <TopScholarship></TopScholarship>
                 </div>
             </div>

@@ -23,7 +23,7 @@ const TopScholarship = () => {
         <section>
             <SectionTitle heading={"Top Scholarship"}>
             </SectionTitle>
-            <div className="grid grid-cols-1 gap-y-9 md:grid-cols-3 lg:grid-cols-4 py-20">
+            <div className="grid grid-cols-1 gap-7 md:grid-cols-3 lg:grid-cols-4 py-20">
                 {
                     allScholarship.map((cardData) => <TopScholarshipCard key={cardData._id} cardData={cardData}></TopScholarshipCard>)
                 }

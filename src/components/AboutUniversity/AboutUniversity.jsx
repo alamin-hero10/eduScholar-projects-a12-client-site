@@ -7,10 +7,10 @@ import imageCard2 from "../../assets/card/scholarship2.jpg"
 
 const AboutUniversity = () => {
     return (
-        <div className="grid md:grid-cols-2 py-32">
+        <div className="grid md:grid-cols-2 gap-20 py-32">
             {/* Image */}
             <div className="relative">
-                <div className="md:flex items-center  gap-7">
+                <div className="md:flex items-center justify-center gap-7">
                     <img className="w-[300px] h-[475px] mt-14" src={imageCard1} alt="" />
                     <img className="w-[300px] h-[475px]" src={imageCard2} alt="" />
                 </div>

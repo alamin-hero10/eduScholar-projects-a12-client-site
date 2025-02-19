@@ -37,7 +37,7 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className="hero place-items-stretch h-[600px]">
                         <div>
-                            <img className='w-full h-[600px] object-cover' src={sliderImg1} alt="" />
+                            <img className='w-full h-[600px] object-cover bg-contain' src={sliderImg1} alt="" />
                         </div>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content max-w-none text-neutral-content text-center">
