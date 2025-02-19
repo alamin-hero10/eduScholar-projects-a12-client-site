@@ -14,7 +14,6 @@ import sliderImg3 from "../../assets/banner/image03.jpg"
 import sliderImg4 from "../../assets/banner/image04.jpg"
 import sliderImg5 from "../../assets/banner/image05.jpg"
 
-
 const Banner = () => {
     return (
         <div>
@@ -46,6 +45,7 @@ const Banner = () => {
                                 <p className="mb-5">
                                     Education changes lives, and we want to be a part of your story. Apply for our scholarship and take the next step toward achieving your goals.
                                 </p>
+                                <button type="button" className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 mt-10">See More</button>
                             </div>
                         </div>
                     </div>
@@ -63,6 +63,7 @@ const Banner = () => {
                                 <p className="mb-5">
                                     We believe that every student deserves a chance to succeed. Our scholarship program is designed to eliminate obstacles and support your academic journey.
                                 </p>
+                                <button type="button" className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 mt-10">See More</button>
                             </div>
                         </div>
                     </div>
@@ -80,6 +81,7 @@ const Banner = () => {
                                 <p className="mb-5">
                                     Shape the future you deserve with our education scholarship. We’re here to fuel your passion for learning and leadership.
                                 </p>
+                                <button type="button" className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 mt-10">See More</button>
                             </div>
                         </div>
                     </div>
@@ -97,6 +99,7 @@ const Banner = () => {
                                 <p className="mb-5">
                                     Your potential is limitless, and so are the opportunities ahead. With our education scholarship, we’ll help you turn aspirations into achievements.
                                 </p>
+                                <button type="button" className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 mt-10">See More</button>
                             </div>
                         </div>
                     </div>
@@ -114,6 +117,7 @@ const Banner = () => {
                                 <p className="mb-5">
                                     Education is the foundation of success, and we’re here to make it accessible. Apply now for a scholarship that brings your dreams within reach.
                                 </p>
+                                <button type="button" className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 mt-10">See More</button>
                             </div>
                         </div>
                     </div>
@@ -131,6 +135,7 @@ const Banner = () => {
                                 <p className="mb-5">
                                     Take the first step toward becoming a changemaker. Our scholarship is here to help you achieve your academic goals and make an impact on the world.
                                 </p>
+                                <button type="button" className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 mt-10">See More</button>
                             </div>
                         </div>
                     </div>
@@ -148,6 +153,7 @@ const Banner = () => {
                                 <p className="mb-5">
                                     Dream big, aim high, and let us support your journey. Apply for our education scholarship and unlock the opportunity to pursue your passions without financial barriers.
                                 </p>
+                                <button type="button" className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 mt-10">See More</button>
                             </div>
                         </div>
                     </div>

@@ -20,7 +20,7 @@ const MyProfile = () => {
             {/* ---User Info--- */}
             <div>
                 <img
-                    className="w-32 he-36 rounded-full"
+                    className="w-32 h-32 rounded-full"
                     src={photoURL}
                     alt="" />
                 <div>
@@ -29,8 +29,6 @@ const MyProfile = () => {
                     <p className="text-2xl">Mobile Number: 0170000000</p>
                 </div>
             </div>
-            {/* ---Divider--- */}
-            {/* ---Divider--- */}
             {/* ---Divider--- */}
         </div>
     );
